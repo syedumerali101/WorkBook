@@ -1,0 +1,170 @@
+<%- include('../common/header'); -%>
+
+
+    <body id="page-top">
+        <div id="wrapper">
+            <%- include('../common/sidebar'); -%>
+                <div class="d-flex flex-column" id="content-wrapper">
+                    <div id="content">
+                        <nav class="navbar navbar-light navbar-expand bg-dark shadow-none mb-4 topbar static-top">
+                            <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3"
+                                    id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                                <form
+                                    class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                                    <div class="input-group"><input
+                                            class="bg-light form-control form-control-sm border-0 small" type="text"
+                                            placeholder="Search for records..." name="searchbar">
+                                        <div class="input-group-append"><button class="btn btn-secondary py-0"
+                                                type="button"><i class="fas fa-search"></i></button></div>
+                                    </div>
+                                </form>
+                                <ul class="nav navbar-nav flex-nowrap ml-auto">
+                                    <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
+                                            data-toggle="dropdown" aria-expanded="false" href="#"><i
+                                                class="fas fa-search"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in"
+                                            aria-labelledby="searchDropdown">
+                                            <form class="form-inline mr-auto navbar-search w-100">
+                                                <div class="input-group"><input
+                                                        class="bg-light form-control border-0 small" type="text"
+                                                        placeholder="Search for ...">
+                                                    <div class="input-group-append"><button class="btn btn-primary py-0"
+                                                            type="button"><i class="fas fa-search"></i></button></div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown no-arrow mx-1">
+                                        <div class="nav-item dropdown no-arrow"><a data-toggle="dropdown"
+                                                aria-expanded="false" class="nav-link" href="#"><span
+                                                    class="bg-danger flash animated badge badge-counter">3</span><i
+                                                    class="far fa-bell fa-fw"></i></a>
+                                            <div
+                                                class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in">
+                                                <h6 class="dropdown-header" style="background: #dd5900;">Notification
+                                                    center
+                                                </h6><a class="d-flex align-items-center dropdown-item" href="#">
+                                                    <div class="mr-3">
+                                                        <div class="bg-warning icon-circle"><i
+                                                                class="far fa-clock text-white"></i></div>
+                                                    </div>
+                                                    <div><span class="small text-gray-500">December 7, 2020</span>
+                                                        <p style="margin-bottom: 0px;">&gt;30 days since checked an item
+                                                            in
+                                                            People Search Websites</p>
+                                                    </div>
+                                                </a><a
+                                                    class="d-flex align-items-center dropdown-item ribbon-wrapper ribbon"
+                                                    href="#">
+                                                    <div class="mr-3">
+                                                        <div class="bg-success icon-circle"><i
+                                                                class="fas fa-plus text-white"></i></div>
+                                                    </div>
+                                                    <div><span class="small text-gray-500">November 13, 2020</span>
+                                                        <p style="margin-bottom: 0px;">New item added under Data Request
+                                                            (item name)</p>
+                                                    </div>
+                                                </a><a class="d-flex align-items-center dropdown-item" href="#">
+                                                    <div class="mr-3">
+                                                        <div class="bg-secondary icon-circle"><i
+                                                                class="far fa-trash-alt text-white"></i></div>
+                                                    </div>
+                                                    <div><span class="small text-gray-500">February 23, 2020</span>
+                                                        <p style="margin-bottom: 0px;">Removing old item in 10 days:
+                                                            Pipl.com is now paid</p>
+                                                    </div>
+                                                </a><a class="d-flex align-items-center dropdown-item" href="#">
+                                                    <div class="mr-3">
+                                                        <div class="bg-danger icon-circle"><i
+                                                                class="fas fa-exclamation-triangle text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div><span class="small text-gray-500">June 23, 2020</span>
+                                                        <p style="margin-bottom: 0px;">&gt;60 days since checked an item
+                                                            in
+                                                            Maps</p>
+                                                    </div>
+                                                </a><a class="text-center dropdown-item small text-gray-500"
+                                                    id="show-all-alerts" href="/notifications.html">Show All</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <div class="d-none d-sm-block topbar-divider"></div>
+                                    <li class="nav-item dropdown no-arrow">
+                                        <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
+                                                data-toggle="dropdown" aria-expanded="false" href="#"><span
+                                                    class="d-none d-lg-inline mr-2 small">John Doe</span><img
+                                                    class="border rounded-circle img-profile"
+                                                    src="assets/img/PP-23.jpg"></a>
+                                            <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a
+                                                    class="dropdown-item" href="settings.html"><i
+                                                        class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                                <div class="dropdown-divider"></div>
+                                                <p class="text-center" style="margin-bottom: 5px;">Switch Profile</p><a
+                                                    class="dropdown-item"><img
+                                                        class="border rounded-circle img-fluid avatar"
+                                                        src="assets/img/PP-35.jpg" style="margin-right: 5px;"
+                                                        width="30px" height="30px">&nbsp;Jane Smith</a><a
+                                                    class="dropdown-item"><img
+                                                        class="border rounded-circle img-fluid avatar"
+                                                        src="assets/img/PP-30.jpg" style="margin-right: 5px;"
+                                                        width="30px" height="30px">&nbsp;Mark Doe</a>
+                                                <div class="dropdown-divider"></div><!-- Start: support --><a
+                                                    class="dropdown-item" href="#" data-toggle="modal"
+                                                    data-target="#support-modal"><i
+                                                        class="far fa-life-ring fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Support</a>
+                                                <!-- End: support --><a class="dropdown-item" href="login.html"><i
+                                                        class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                            </div>
+                                        </div>
+                                        <div class="modal fade" role="dialog" tabindex="-1" id="support-modal">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header"
+                                                        style="background: url(&quot;assets/img/interlaced.png&quot;);">
+                                                        <h4 class="modal-title"><i class="far fa-life-ring"
+                                                                style="padding-right: 5px;padding-left: 5px;"></i>Support
+                                                        </h4><button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close"><span
+                                                                aria-hidden="true">×</span></button>
+                                                    </div><!-- Start: change password -->
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <p>Please describe your issue here.</p>
+                                                                <p>You need to have an email specified in your account
+                                                                    to
+                                                                    communicate with support.</p>
+                                                                <p>If you prefer chat, come to the matrix room instead.
+                                                                </p>
+                                                                <textarea class="form-control-lg" autofocus=""
+                                                                    autocomplete="off" spellcheck="false" required=""
+                                                                    minlength="10" maxlength="500"
+                                                                    style="width: 100%;height: 150px;"
+                                                                    placeholder="explain your issue..."></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- End: change password -->
+                                                    <div class="modal-footer"><button class="btn btn-light"
+                                                            type="button" data-dismiss="modal">Cancel</button><button
+                                                            class="btn btn-primary" type="submit"><i
+                                                                class="far fa-thumbs-up"
+                                                                style="padding-right: 5px;padding-left: 5px;"></i>Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <div class="container-fluid text-center" style="height: 80%;">
+                            <div class="row no-gutters justify-content-center align-items-center"
+                                style="width: 100%;height: 100%;">
+                                <div class="col">
+                                    <h1>Page Not Found</h1><a href="/">← Back to Dashboard</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%- include('../common/footer'); -%>

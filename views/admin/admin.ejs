@@ -1,0 +1,1653 @@
+<%- include('../common/header'); -%>
+
+    <body id="page-top">
+        <div class="toast-container">
+            <div class="toast fade hide" role="alert" data-delay="6000" id="toast-update-success" aria-atomic="true"
+                aria-live="assertive">
+                <div class="toast-header"><i class="fas fa-info-circle"
+                        style="margin-right: 5px;margin-left: 5px;"></i><strong
+                        class="mr-auto">Notification</strong><button class="close ml-2 mb-1 close"
+                        data-dismiss="toast"><span aria-hidden="true">×</span></button></div>
+                <div class="toast-body" role="alert">
+                    <p id="toast-message"><i class="fas fa-check-circle"
+                            style="margin-right: 5px;margin-left: 5px;color: var(--success);"></i></p>
+                </div>
+            </div>
+            <div class="toast fade hide" role="alert" id="toast-update-fail" data-delay="6000" aria-live="assertive"
+                aria-atomic="true">
+                <div class="toast-header"><i class="fas fa-info-circle"
+                        style="margin-right: 5px;margin-left: 5px;"></i><strong
+                        class="mr-auto">Notification</strong><button class="close ml-2 mb-1 close"
+                        data-dismiss="toast"><span aria-hidden="true">×</span></button></div>
+                <div class="toast-body" role="alert">
+                    <p id="toast-message-1"><i class="fas fa-times-circle"
+                            style="margin-right: 5px;margin-left: 5px;color: var(--danger);"></i>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="wrapper">
+            <%- include('../common/sidebar'); -%>
+
+                <div class="d-flex flex-column" id="content-wrapper">
+                    <div id="content" style="background: url(&quot;img/dark-honeycomb.png&quot;), grey;">
+                        <%- include('../common/headerStrip'); -%>
+                            <div class="container-fluid bg-dark border-dark">
+                                <div class="d-sm-flex justify-content-between align-items-center mb-4"
+                                    style="background: transparent;"></div>
+                                <div class="row justify-content-center" style="width: 100%;">
+                                    <div class="col d-inline-block mb-4">
+                                        <h1 class="text-dark mb-0">Admin</h1>
+                                        <p style="margin-top: 10px;margin-bottom: 0px;">Add, Remove or Edit Categories
+                                            and
+                                            data
+                                            records</p>
+                                    </div>
+                                    <div class="col-auto d-xl-flex align-items-xl-center mb-4"
+                                        style="margin-bottom: 0px;">
+                                        <div class="card-group d-inline-block"
+                                            style="margin-right: 5px;margin-left: 5px;">
+                                            <div class="card text-center d-inline-block" style="text-align: center;">
+                                                <div class="card-body d-inline-block align-items-xl-center"><i
+                                                        class="fas fa-users fa-fw"
+                                                        style="margin-right: 5px;margin-left: 5px;"></i><span
+                                                        class="text-success" style="font-size: 20px;">38</span>
+                                                    <p style="color: #919693;margin-bottom: 0px;">Users</p>
+                                                </div>
+                                            </div>
+                                            <div class="card text-center d-inline-block" style="text-align: center;">
+                                                <div class="card-body d-inline-block align-items-xl-center"><i
+                                                        class="fas fa-child fa-fw"
+                                                        style="margin-right: 5px;margin-left: 5px;"></i><span
+                                                        class="text-success" style="font-size: 20px;">28</span>
+                                                    <p style="color: #919693;margin-bottom: 0px;">Free</p>
+                                                </div>
+                                                <div class="card-body d-inline-block align-items-xl-center"><i
+                                                        class="fas fa-user-tie fa-fw"
+                                                        style="margin-right: 5px;margin-left: 5px;"></i><span
+                                                        class="text-success"
+                                                        style="font-size: 20px;color: rgb(249,214,22)!important;">6</span>
+                                                    <p style="color: #919693;margin-bottom: 0px;">Serious</p>
+                                                </div>
+                                                <div class="card-body d-inline-block align-items-xl-center"><i
+                                                        class="fas fa-user-secret fa-fw"
+                                                        style="margin-right: 5px;margin-left: 5px;"></i><span
+                                                        class="text-success"
+                                                        style="font-size: 20px;color: #dd5900!important;">4</span>
+                                                    <p style="color: #919693;margin-bottom: 0px;">Paranoid</p>
+                                                </div>
+                                                <div class="card-body d-inline-flex flex-grow-1" style="padding: 0;">
+                                                    <div class="text-center d-flex" id="chart-users"
+                                                        style="height: 50px;">
+                                                        <canvas
+                                                            data-bs-chart="{&quot;type&quot;:&quot;pie&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Free&quot;,&quot;Serious&quot;,&quot;Paranoid&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;rgb(41,181,168)&quot;,&quot;rgb(249,214,22)&quot;,&quot;rgb(221,89,0)&quot;],&quot;borderColor&quot;:[&quot;#fff&quot;,&quot;#fff&quot;,&quot;#fff&quot;],&quot;data&quot;:[&quot;18&quot;,&quot;6&quot;,&quot;4&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:true,&quot;legend&quot;:{&quot;display&quot;:false,&quot;reverse&quot;:false,&quot;position&quot;:&quot;top&quot;},&quot;title&quot;:{&quot;display&quot;:false}}}"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-group" style="margin-right: 5px;margin-left: 5px;">
+                                            <div class="card text-center">
+                                                <div class="card-body"><i class="fas fa-database fa-fw"
+                                                        style="margin-right: 5px;margin-left: 5px;"></i><span
+                                                        class="text-secondary" style="font-size: 20px;">450</span>
+                                                    <p style="color: #919693;margin-bottom: 0px;">Records</p>
+                                                    <div class="submissions-widget"><span data-toggle="tooltip"
+                                                            data-bs-tooltip="" title="approved">Categories:</span><span
+                                                            class="text-success" data-toggle="tooltip"
+                                                            data-bs-tooltip="" id="categories" style="margin-left: 5px;"
+                                                            title="categories">7</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="card text-center d-inline-block">
+                                                <div class="card-body"><span class="d-block" data-toggle="tooltip"
+                                                        data-bs-tooltip="" style="font-size: 20px;" title="Total"><i
+                                                            class="fas fa-brain fa-fw"
+                                                            style="margin-right: 5px;margin-left: 5px;"></i>497</span>
+                                                    <p class="text-nowrap" style="color: #919693;margin-bottom: 0px;">
+                                                        Submissions
+                                                    </p>
+                                                    <div class="submissions-widget"><span class="text-success"
+                                                            data-toggle="tooltip" data-bs-tooltip=""
+                                                            title="approved">450</span><span
+                                                            class="text-secondary">/</span><span class="text-danger"
+                                                            data-toggle="tooltip" data-bs-tooltip=""
+                                                            title="denied">42</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <!-- Start: coupon -->
+                                    <div class="col-auto d-inline-block align-self-center order-lg-2 mb-4"
+                                        style="margin-bottom: 0px;"><button class="btn btn-outline-warning text-center"
+                                            type="button" data-target="#generate-coupon-modal" data-toggle="modal"
+                                            style="margin-top: 10px;margin-bottom: Submissions are reviewed and rewarded on a first come first served basis;"><i
+                                                class="fas fa-ticket-alt"
+                                                style="margin-right: 5px;margin-left: 5px;"></i><span
+                                                class="d-block">Generate</span><span
+                                                class="d-block">Coupon</span></button>
+                                        <div class="modal fade" role="dialog" tabindex="-1" id="generate-coupon-modal">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header"
+                                                        style="background: url(&quot;img/interlaced.png&quot;);">
+                                                        <h4 class="modal-title"><i class="fas fa-ticket-alt"
+                                                                style="padding-right: 5px;padding-left: 5px;"></i>Generate
+                                                            Coupon
+                                                        </h4><button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close"><span
+                                                                aria-hidden="true">×</span></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <div class="row justify-content-center">
+                                                                <div class="col text-center">
+                                                                    <p class="text-left">Enter an amount to generate.
+                                                                    </p>
+                                                                    <form id="generate-coupon-form">
+                                                                        <div class="form-row" style="margin-top: 25px;">
+                                                                            <div class="col"><input class="form-control"
+                                                                                    type="number" id="coupon-amount"
+                                                                                    placeholder="enter $ amount"
+                                                                                    step="1" name="amount"></div>
+                                                                        </div>
+                                                                        <div class="form-row" style="margin-top: 25px;">
+                                                                            <div class="col">
+                                                                                <p id="coupon-code-text">COUPON-CODE</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer text-center d-xl-flex justify-content-xl-center"
+                                                                            style="margin-top: 25px;"><button
+                                                                                class="btn btn-light" type="button"
+                                                                                data-dismiss="modal">Cancel</button><a
+                                                                                class="btn btn-primary" role="button"
+                                                                                id="generate-coupon-button"><i
+                                                                                    class="fas fa-magic"
+                                                                                    style="padding-right: 5px;padding-left: 5px;"></i>Generate</a>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- End: coupon -->
+                                    <div class="col-auto text-center order-lg-1">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <div class="row">
+                                                    <div class="col-auto text-right align-self-baseline">
+                                                        <div class="modal fade" role="dialog" tabindex="-1"
+                                                            id="submit-provider-modal">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header"
+                                                                        style="background: url(&quot;img/interlaced.png&quot;);">
+                                                                        <h4 class="modal-title"><i class="fas fa-medal"
+                                                                                style="padding-right: 5px;padding-left: 5px;"></i>Contribute
+                                                                        </h4><button type="button" class="close"
+                                                                            data-dismiss="modal"
+                                                                            aria-label="Close"><span
+                                                                                aria-hidden="true">×</span></button>
+                                                                    </div><!-- Start: change password -->
+                                                                    <div class="modal-body">
+                                                                        <div class="row">
+                                                                            <div class="col text-left">
+                                                                                <p class="text-justify">Please add your
+                                                                                    contribution
+                                                                                    based on the criteria below. Each
+                                                                                    new
+                                                                                    contribution that is accepted will
+                                                                                    earn
+                                                                                    you
+                                                                                    points that you can utilize towards
+                                                                                    your
+                                                                                    subscription.</p>
+                                                                                <p class="text-center text-success">1
+                                                                                    point
+                                                                                    = $1
+                                                                                </p>
+                                                                                <span>Please provide the following in
+                                                                                    the
+                                                                                    text
+                                                                                    area
+                                                                                    below:</span>
+                                                                                <ul class="text-left">
+                                                                                    <li>Provider name</li>
+                                                                                    <li>Website</li>
+                                                                                    <li>Can it be anonymized?</li>
+                                                                                    <li>If no, explain what their answer
+                                                                                        was
+                                                                                    </li>
+                                                                                    <li>If yes, please explain the
+                                                                                        procedure
+                                                                                    </li>
+                                                                                </ul><select class="custom-select"
+                                                                                    id="utility-name" required=""
+                                                                                    style="margin-top: 5px;margin-bottom: 10px;"
+                                                                                    autofocus="">
+                                                                                    <option value="" selected="">Select
+                                                                                        Category
+                                                                                    </option>
+                                                                                    <option value="1">Data Removal
+                                                                                    </option>
+                                                                                    <option value="2">Credit Freeze
+                                                                                    </option>
+                                                                                    <option value="3">Data Requests
+                                                                                    </option>
+                                                                                    <option value="4">OpSec</option>
+                                                                                    <option value="5">Utilities</option>
+                                                                                    <option value="6">Disinformation
+                                                                                    </option>
+                                                                                </select><textarea
+                                                                                    class="form-control-lg"
+                                                                                    id="utility-description"
+                                                                                    autofocus="" autocomplete="off"
+                                                                                    spellcheck="false" required=""
+                                                                                    minlength="10" maxlength="500"
+                                                                                    style="width: 100%;min-height: 200px;font-size: 16px;"
+                                                                                    placeholder="describe here..."></textarea><span>We
+                                                                                    will review it after submission and
+                                                                                    deposit
+                                                                                    the
+                                                                                    credit upon validation. Thank you
+                                                                                    for
+                                                                                    your
+                                                                                    contribution.</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div><!-- End: change password -->
+                                                                    <div class="modal-footer"><button
+                                                                            class="btn btn-light" type="button"
+                                                                            data-dismiss="modal">Cancel</button><button
+                                                                            class="btn btn-primary" type="submit"><i
+                                                                                class="far fa-thumbs-up"
+                                                                                style="padding-right: 5px;padding-left: 5px;"></i>Submit</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-auto text-center align-self-center"
+                                                        style="padding-bottom: 10px;">
+                                                        <p><i class="fas fa-network-wired"
+                                                                style="margin-right: 5px;"></i>Select
+                                                            Category</p><select class="custom-select">
+                                                            <optgroup label="Option">
+                                                                <option value="1">Data Removal</option>
+                                                                <option value="1">Credit Freeze</option>
+                                                                <option value="3">OpSec</option>
+                                                                <option value="4">Utilities/Recurring</option>
+                                                                <option value="5">Home Privacy</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-auto text-center align-self-center"
+                                                        style="padding-bottom: 10px;">
+                                                        <p><i class="far fa-building"
+                                                                style="margin-right: 5px;"></i>Sub-Category
+                                                        </p><select class="custom-select">
+                                                            <optgroup label="Tab">
+                                                                <option value="1">Security</option>
+                                                                <option value="1">Privacy</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-auto align-self-end" style="padding-bottom: 10px;">
+                                                        <button class="btn btn-outline-danger" type="button"
+                                                            style="margin-top: 15px;" data-toggle="modal"
+                                                            data-target="#modify-category-modal"><i
+                                                                class="fas fa-list-ul"
+                                                                style="margin-right: 5px;margin-left: 5px;"></i>Modify
+                                                            Category</button>
+                                                    </div>
+                                                </div>
+                                                <div class="modal fade" role="dialog" tabindex="-1"
+                                                    id="modify-category-modal">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header"
+                                                                style="background: url(&quot;img/interlaced.png&quot;);">
+                                                                <h4 class="modal-title"><i class="fas fa-database"
+                                                                        style="padding-right: 5px;padding-left: 5px;"></i>Modify
+                                                                    Categories</h4><button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close"><span
+                                                                        aria-hidden="true">×</span></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form>
+                                                                    <div class="card">
+                                                                        <div class="card-body">
+                                                                            <p>Select one item to change</p>
+                                                                            <div class="form-row">
+                                                                                <div class="col text-left">
+                                                                                    <div class="form-row"
+                                                                                        style="margin-top: 25px;">
+                                                                                        <div class="col text-center"
+                                                                                            style="padding-bottom: 10px;">
+                                                                                            <p class="d-xl-flex align-items-xl-center"
+                                                                                                for="#category-radio">
+                                                                                                <input
+                                                                                                    class="d-xl-flex align-items-xl-center"
+                                                                                                    type="radio"
+                                                                                                    id="category-radio"
+                                                                                                    name="category-radio"
+                                                                                                    style="margin-right: 10px;"><i
+                                                                                                    class="fas fa-network-wired d-xl-flex align-items-xl-center"
+                                                                                                    style="margin-right: 5px;"></i>Select
+                                                                                                Category</p><select
+                                                                                                class="custom-select">
+                                                                                                <optgroup
+                                                                                                    label="Option">
+                                                                                                    <option value="1"
+                                                                                                        selected="">
+                                                                                                    </option>
+                                                                                                    <option value="1">
+                                                                                                        Data
+                                                                                                        Removal
+                                                                                                    </option>
+                                                                                                    <option value="1">
+                                                                                                        Credit
+                                                                                                        Freeze
+                                                                                                    </option>
+                                                                                                    <option value="3">
+                                                                                                        OpSec
+                                                                                                    </option>
+                                                                                                    <option value="4">
+                                                                                                        Utilities/Recurring
+                                                                                                    </option>
+                                                                                                    <option value="5">
+                                                                                                        Home
+                                                                                                        Privacy
+                                                                                                    </option>
+                                                                                                </optgroup>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <div class="col text-center align-self-start"
+                                                                                            style="padding-bottom: 10px;">
+                                                                                            <p class="d-xl-flex align-items-xl-center"
+                                                                                                for="#subcategory-radio">
+                                                                                                <input
+                                                                                                    class="d-xl-flex align-items-xl-center"
+                                                                                                    type="radio"
+                                                                                                    id="subcategory-radio"
+                                                                                                    name="category-radio"
+                                                                                                    style="margin-right: 10px;"><i
+                                                                                                    class="fas fa-level-down-alt d-xl-flex align-items-xl-center"
+                                                                                                    style="margin-right: 5px;"></i>Sub
+                                                                                                Category
+                                                                                            </p><select
+                                                                                                class="custom-select">
+                                                                                                <option value="1"
+                                                                                                    selected="">
+                                                                                                </option>
+                                                                                                <option value="1">
+                                                                                                    Security
+                                                                                                </option>
+                                                                                                <option value="1">
+                                                                                                    Privacy
+                                                                                                </option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card" style="margin-top: 10px;">
+                                                                        <div class="card-body">
+                                                                            <div class="form-row">
+                                                                                <div class="col"
+                                                                                    style="margin-top: -30px;">
+                                                                                    <div class="form-row"
+                                                                                        style="margin-top: 25px;">
+                                                                                        <div class="col text-center align-self-center"
+                                                                                            style="padding-bottom: 10px;">
+                                                                                            <p
+                                                                                                style="margin-top: 15px;">
+                                                                                                Pick a
+                                                                                                new
+                                                                                                name</p>
+                                                                                        </div>
+                                                                                        <div class="col text-center align-self-center"
+                                                                                            style="padding-bottom: 10px;">
+                                                                                            <input class="form-control"
+                                                                                                type="text"
+                                                                                                placeholder="name">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-row text-center">
+                                                                                        <div class="col"><button
+                                                                                                class="btn btn-outline-primary btn-block d-inline-block"
+                                                                                                type="button"
+                                                                                                style="margin-top: 15px;"><i
+                                                                                                    class="far fa-save"
+                                                                                                    style="margin-right: 5px;margin-left: 5px;"></i>Change
+                                                                                                Name</button></div>
+                                                                                        <div class="col"><button
+                                                                                                class="btn btn-outline-primary btn-block d-inline-block"
+                                                                                                type="button"
+                                                                                                style="margin-top: 15px;"><i
+                                                                                                    class="fas fa-plus"
+                                                                                                    style="margin-right: 5px;margin-left: 5px;"></i>Add
+                                                                                                New Name</button></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- Start: Default-Table-Row -->
+                                <div class="row justify-content-center" id="Default-Table-Row"
+                                    style="margin-top: 50px;">
+                                    <div class="col-auto">
+                                        <p>Default Table shown to all users</p><!-- Start: Default-Table -->
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-hover table-dark table-sm">
+                                                <thead class="text-capitalize text-center text-white">
+                                                    <tr class="bg-secondary">
+                                                        <th data-toggle="tooltip" data-bs-tooltip=""
+                                                            title="Search for your info at this site"><i
+                                                                class="far fa-building"
+                                                                style="margin-right: 5px;"></i>Website</th>
+                                                        <th data-toggle="tooltip" data-bs-tooltip=""
+                                                            title="Not Applicable">
+                                                            <i class="far fa-thumbs-down"
+                                                                style="margin-right: 5px;"></i>
+                                                        </th>
+                                                        <th><i class="far fa-sticky-note"
+                                                                style="padding-right: 5px;"></i>Notes
+                                                        </th>
+                                                        <th data-toggle="tooltip" data-bs-tooltip="" title="Score"><i
+                                                                class="fas fa-balance-scale-left"
+                                                                style="margin-right: 5px;text-align: center;"></i></th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><a href="www.google.com" target="_blank"><img
+                                                                    src="https://icons.duckduckgo.com/ip3/www.google.com.ico"
+                                                                    width="20" height="20"
+                                                                    style="margin-right: 10px;margin-left: 10px;">Google</a>
+                                                        </td>
+                                                        <td
+                                                            class="text-center justify-content-center align-items-center align-content-center">
+                                                            <button class="btn btn-sm btn-toggle active" type="button"
+                                                                data-toggle="button" aria-pressed="true"
+                                                                autocomplete="off">
+                                                                <div class="handle"></div>
+                                                            </button>
+                                                        </td>
+                                                        <td class="text-center"><a href="#" data-target="#notes-1"
+                                                                data-toggle="modal"><i class="far fa-sticky-note"
+                                                                    data-toggle="tooltip" data-bs-tooltip=""
+                                                                    title="Notes"></i></a>
+                                                            <div class="modal fade text-muted" role="dialog"
+                                                                tabindex="-1" id="notes-8">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header"
+                                                                            style="background: url(&quot;img/interlaced.png&quot;);">
+                                                                            <h4 class="modal-title"><i
+                                                                                    class="far fa-sticky-note"
+                                                                                    style="margin-right: 10px;margin-left: 10px;"></i>Notes
+                                                                            </h4><button type="button" class="close"
+                                                                                data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p class="text-left">Follow these
+                                                                                instructions:&nbsp;
+                                                                            </p>
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <ul class="text-left">
+                                                                                        <li>First item</li>
+                                                                                        <li>Second</li>
+                                                                                        <li>3rd thing on the list</li>
+                                                                                        <li>Follow&nbsp;<a
+                                                                                                href="http://www.follow-this-link.com/abcdef123">this</a>&nbsp;link
+                                                                                            for a video tutorial</li>
+                                                                                    </ul>
+                                                                                    <hr style="margin-top: -13px;">
+                                                                                    <p class="text-left">Add your own
+                                                                                        personalized
+                                                                                        notes here.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer"><button
+                                                                                class="btn btn-primary" type="button"><i
+                                                                                    class="fas fa-pencil-alt"
+                                                                                    style="margin-right: 10px;"></i>Edit</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td style="text-align: center;">1</td>
+                                                        <td style="text-align: center;"><a href="#" data-toggle="modal"
+                                                                data-target="#edit-record-modal"><i
+                                                                    class="fas fa-pencil-alt" data-toggle="tooltip"
+                                                                    data-bs-tooltip=""
+                                                                    style="padding-right: 5px;margin-right: 5px;margin-left: 5px;"
+                                                                    title="Edit"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><a href="https://www.cisco.com" target="_blank"><img
+                                                                    src="https://icons.duckduckgo.com/ip3/www.cisco.com.ico"
+                                                                    width="20" height="20"
+                                                                    style="margin-right: 10px;margin-left: 10px;">Cisco</a>
+                                                        </td>
+                                                        <td
+                                                            class="text-center justify-content-center align-items-center align-content-center">
+                                                            <button class="btn btn-sm btn-toggle active" type="button"
+                                                                data-toggle="button" aria-pressed="true"
+                                                                autocomplete="off">
+                                                                <div class="handle"></div>
+                                                            </button>
+                                                        </td>
+                                                        <td class="text-center"><a href="#" data-target="#notes-1"
+                                                                data-toggle="modal"><i class="far fa-sticky-note"
+                                                                    data-toggle="tooltip" data-bs-tooltip=""
+                                                                    title="Notes"></i></a>
+                                                            <div class="modal fade text-muted" role="dialog"
+                                                                tabindex="-1" id="notes-9">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header"
+                                                                            style="background: url(&quot;img/interlaced.png&quot;);">
+                                                                            <h4 class="modal-title"><i
+                                                                                    class="far fa-sticky-note"
+                                                                                    style="margin-right: 10px;margin-left: 10px;"></i>Notes
+                                                                            </h4><button type="button" class="close"
+                                                                                data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p class="text-left">Follow these
+                                                                                instructions:&nbsp;
+                                                                            </p>
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <ul class="text-left">
+                                                                                        <li>First item</li>
+                                                                                        <li>Second</li>
+                                                                                        <li>3rd thing on the list</li>
+                                                                                        <li>Follow&nbsp;<a
+                                                                                                href="http://www.follow-this-link.com/abcdef123">this</a>&nbsp;link
+                                                                                            for a video tutorial</li>
+                                                                                    </ul>
+                                                                                    <hr style="margin-top: -13px;">
+                                                                                    <p class="text-left">Add your own
+                                                                                        personalized
+                                                                                        notes here.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer"><button
+                                                                                class="btn btn-primary" type="button"><i
+                                                                                    class="fas fa-pencil-alt"
+                                                                                    style="margin-right: 10px;"></i>Edit</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td style="text-align: center;">2</td>
+                                                        <td style="text-align: center;"><a href="#" data-toggle="modal"
+                                                                data-target="#edit-record-modal"><i
+                                                                    class="fas fa-pencil-alt" data-toggle="tooltip"
+                                                                    data-bs-tooltip=""
+                                                                    style="padding-right: 5px;margin-right: 5px;margin-left: 5px;"
+                                                                    title="Edit"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><a href="https://www.yahoo.com" target="_blank"><img
+                                                                    src="https://icons.duckduckgo.com/ip3/www.yahoo.com.ico"
+                                                                    width="20" height="20"
+                                                                    style="margin-right: 10px;margin-left: 10px;">Yahoo</a>
+                                                        </td>
+                                                        <td
+                                                            class="text-center justify-content-center align-items-center align-content-center">
+                                                            <button class="btn btn-sm btn-toggle active" type="button"
+                                                                data-toggle="button" aria-pressed="true"
+                                                                autocomplete="off">
+                                                                <div class="handle"></div>
+                                                            </button>
+                                                        </td>
+                                                        <td class="text-center"><a href="#" data-target="#notes-1"
+                                                                data-toggle="modal"><i class="far fa-sticky-note"
+                                                                    data-toggle="tooltip" data-bs-tooltip=""
+                                                                    title="Notes"></i></a>
+                                                            <div class="modal fade text-muted" role="dialog"
+                                                                tabindex="-1" id="notes-10">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header"
+                                                                            style="background: url(&quot;img/interlaced.png&quot;);">
+                                                                            <h4 class="modal-title"><i
+                                                                                    class="far fa-sticky-note"
+                                                                                    style="margin-right: 10px;margin-left: 10px;"></i>Notes
+                                                                            </h4><button type="button" class="close"
+                                                                                data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p class="text-left">Follow these
+                                                                                instructions:&nbsp;
+                                                                            </p>
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <ul class="text-left">
+                                                                                        <li>First item</li>
+                                                                                        <li>Second</li>
+                                                                                        <li>3rd thing on the list</li>
+                                                                                        <li>Follow&nbsp;<a
+                                                                                                href="http://www.follow-this-link.com/abcdef123">this</a>&nbsp;link
+                                                                                            for a video tutorial</li>
+                                                                                    </ul>
+                                                                                    <hr style="margin-top: -13px;">
+                                                                                    <p class="text-left">Add your own
+                                                                                        personalized
+                                                                                        notes here.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer"><button
+                                                                                class="btn btn-primary" type="button"><i
+                                                                                    class="fas fa-pencil-alt"
+                                                                                    style="margin-right: 10px;"></i>Edit</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td style="text-align: center;">1</td>
+                                                        <td style="text-align: center;"><a href="#" data-toggle="modal"
+                                                                data-target="#edit-record-modal"><i
+                                                                    class="fas fa-pencil-alt" data-toggle="tooltip"
+                                                                    data-bs-tooltip=""
+                                                                    style="padding-right: 5px;margin-right: 5px;margin-left: 5px;"
+                                                                    title="Edit"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><a href="https://www.cnn.com" target="_blank"><img
+                                                                    src="https://icons.duckduckgo.com/ip3/www.cnn.com.ico"
+                                                                    width="20" height="20"
+                                                                    style="margin-right: 10px;margin-left: 10px;">CNN
+                                                                International
+                                                                News</a></td>
+                                                        <td
+                                                            class="text-center justify-content-center align-items-center align-content-center">
+                                                            <button class="btn btn-sm btn-toggle active" type="button"
+                                                                data-toggle="button" aria-pressed="true"
+                                                                autocomplete="off">
+                                                                <div class="handle"></div>
+                                                            </button>
+                                                        </td>
+                                                        <td class="text-center"><a href="#" data-target="#notes-1"
+                                                                data-toggle="modal"><i class="far fa-sticky-note"
+                                                                    data-toggle="tooltip" data-bs-tooltip=""
+                                                                    title="Notes"></i></a>
+                                                            <div class="modal fade text-muted" role="dialog"
+                                                                tabindex="-1" id="notes-11">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header"
+                                                                            style="background: url(&quot;img/interlaced.png&quot;);">
+                                                                            <h4 class="modal-title"><i
+                                                                                    class="far fa-sticky-note"
+                                                                                    style="margin-right: 10px;margin-left: 10px;"></i>Notes
+                                                                            </h4><button type="button" class="close"
+                                                                                data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p class="text-left">Follow these
+                                                                                instructions:&nbsp;
+                                                                            </p>
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <ul class="text-left">
+                                                                                        <li>First item</li>
+                                                                                        <li>Second</li>
+                                                                                        <li>3rd thing on the list</li>
+                                                                                        <li>Follow&nbsp;<a
+                                                                                                href="http://www.follow-this-link.com/abcdef123">this</a>&nbsp;link
+                                                                                            for a video tutorial</li>
+                                                                                    </ul>
+                                                                                    <hr style="margin-top: -13px;">
+                                                                                    <p class="text-left">Add your own
+                                                                                        personalized
+                                                                                        notes here.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer"><button
+                                                                                class="btn btn-primary" type="button"><i
+                                                                                    class="fas fa-pencil-alt"
+                                                                                    style="margin-right: 10px;"></i>Edit</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td style="text-align: center;">4</td>
+                                                        <td style="text-align: center;"><a href="#" data-toggle="modal"
+                                                                data-target="#edit-record-modal"><i
+                                                                    class="fas fa-pencil-alt" data-toggle="tooltip"
+                                                                    data-bs-tooltip=""
+                                                                    style="padding-right: 5px;margin-right: 5px;margin-left: 5px;"
+                                                                    title="Edit"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><a href="https://www.google.com" target="_blank"><img
+                                                                    src="https://icons.duckduckgo.com/ip3/www.google.com.ico"
+                                                                    width="20" height="20"
+                                                                    style="margin-right: 10px;margin-left: 10px;">Google</a>
+                                                        </td>
+                                                        <td
+                                                            class="text-center justify-content-center align-items-center align-content-center">
+                                                            <button class="btn btn-sm btn-toggle active" type="button"
+                                                                data-toggle="button" aria-pressed="false"
+                                                                autocomplete="off">
+                                                                <div class="handle"></div>
+                                                            </button>
+                                                        </td>
+                                                        <td class="text-center"><a href="#" data-target="#notes-1"
+                                                                data-toggle="modal"><i class="far fa-sticky-note"
+                                                                    data-toggle="tooltip" data-bs-tooltip=""
+                                                                    title="Notes"></i></a>
+                                                            <div class="modal fade text-muted" role="dialog"
+                                                                tabindex="-1" id="notes-12">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header"
+                                                                            style="background: url(&quot;img/interlaced.png&quot;);">
+                                                                            <h4 class="modal-title"><i
+                                                                                    class="far fa-sticky-note"
+                                                                                    style="margin-right: 10px;margin-left: 10px;"></i>Notes
+                                                                            </h4><button type="button" class="close"
+                                                                                data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p class="text-left">Follow these
+                                                                                instructions:&nbsp;
+                                                                            </p>
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <ul class="text-left">
+                                                                                        <li>First item</li>
+                                                                                        <li>Second</li>
+                                                                                        <li>3rd thing on the list</li>
+                                                                                        <li>Follow&nbsp;<a
+                                                                                                href="http://www.follow-this-link.com/abcdef123">this</a>&nbsp;link
+                                                                                            for a video tutorial</li>
+                                                                                    </ul>
+                                                                                    <hr style="margin-top: -13px;">
+                                                                                    <p class="text-left">Add your own
+                                                                                        personalized
+                                                                                        notes here.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer"><button
+                                                                                class="btn btn-primary" type="button"><i
+                                                                                    class="fas fa-pencil-alt"
+                                                                                    style="margin-right: 10px;"></i>Edit</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td style="text-align: center;">2</td>
+                                                        <td style="text-align: center;"><a href="#" data-toggle="modal"
+                                                                data-target="#edit-record-modal"><i
+                                                                    class="fas fa-pencil-alt" data-toggle="tooltip"
+                                                                    data-bs-tooltip=""
+                                                                    style="padding-right: 5px;margin-right: 5px;margin-left: 5px;"
+                                                                    title="Edit"></i></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div><!-- End: Default-Table -->
+                                        <div class="modal fade" role="dialog" tabindex="-1" id="edit-record-modal">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header"
+                                                        style="background: url(&quot;img/interlaced.png&quot;);">
+                                                        <h4 class="modal-title"><i class="fas fa-database"
+                                                                style="padding-right: 5px;padding-left: 5px;"></i>Edit
+                                                            Record<span
+                                                                class="justify-content-xl-end align-items-xl-center"
+                                                                style="font-size: 14px;text-align: center;margin-left: 20px;">Enter
+                                                                Default Values</span></h4><button type="button"
+                                                            class="close" data-dismiss="modal" aria-label="Close"><span
+                                                                aria-hidden="true">×</span></button>
+                                                    </div><!-- Start: edit field -->
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col text-left">
+                                                                    <form>
+                                                                        <div class="form-row" style="margin-top: 25px;">
+                                                                            <div class="col"><label for="username"><i
+                                                                                        class="fas fa-tag"
+                                                                                        style="padding-right: 5px;padding-left: 5px;"></i><strong>Name</strong></label><input
+                                                                                    class="form-control" type="text"
+                                                                                    id="sitename"
+                                                                                    placeholder="Website Name"
+                                                                                    name="sitename" autofocus=""></div>
+                                                                            <div class="col"><label for="email"><i
+                                                                                        class="fas fa-link"
+                                                                                        style="padding-right: 5px;padding-left: 5px;"></i><strong>URL</strong></label><input
+                                                                                    class="form-control" type="url"
+                                                                                    placeholder="https://www.google.com"
+                                                                                    name="url" autofocus=""></div>
+                                                                        </div>
+                                                                        <div class="form-row" style="margin-top: 25px;">
+                                                                            <div class="col align-self-center"><label
+                                                                                    class="col-form-label"
+                                                                                    for="first_name"><i
+                                                                                        class="far fa-thumbs-up"
+                                                                                        style="padding-right: 5px;padding-left: 5px;"></i><strong>Applicable?</strong></label>
+                                                                            </div>
+                                                                            <div class="col align-self-center"><button
+                                                                                    class="btn btn-sm btn-toggle active"
+                                                                                    type="button" data-toggle="button"
+                                                                                    aria-pressed="true"
+                                                                                    autocomplete="off">
+                                                                                    <div class="handle"></div>
+                                                                                </button></div>
+                                                                        </div>
+                                                                        <div class="form-row" style="margin-top: 25px;">
+                                                                            <div class="col align-self-center"
+                                                                                data-toggle="tooltip" data-bs-tooltip=""
+                                                                                title="1=Low, 5=High Impact"><i
+                                                                                    class="fas fa-balance-scale"
+                                                                                    style="padding-right: 5px;padding-left: 5px;"></i><label
+                                                                                    for="last_name"><strong>Score</strong></label>
+                                                                            </div>
+                                                                            <div class="col align-self-center"><select
+                                                                                    class="custom-select"
+                                                                                    id="utility-name-1" required=""
+                                                                                    autofocus="" name="score"
+                                                                                    style="width: 70px;">
+                                                                                    <option value="1">1</option>
+                                                                                    <option value="2">2</option>
+                                                                                    <option value="3">3</option>
+                                                                                    <option value="4">4</option>
+                                                                                    <option value="5">5</option>
+                                                                                </select></div>
+                                                                        </div>
+                                                                        <div id="recurring-row">
+                                                                            <div class="form-row"
+                                                                                style="margin-top: 25px;">
+                                                                                <div class="col align-self-center"><i
+                                                                                        class="far fa-question-circle"
+                                                                                        style="padding-right: 5px;padding-left: 5px;"></i><label
+                                                                                        for="last_name"><strong>Can
+                                                                                            Anonymize?</strong></label>
+                                                                                </div>
+                                                                                <div class="col align-self-center">
+                                                                                    <select class="custom-select"
+                                                                                        id="utility-name-4" required=""
+                                                                                        autofocus="" name="score"
+                                                                                        style="width: 70px;">
+                                                                                        <option value="1">Yes</option>
+                                                                                        <option value="2">No</option>
+                                                                                    </select></div>
+                                                                            </div>
+                                                                            <div class="form-row"
+                                                                                style="margin-top: 25px;">
+                                                                                <div class="col align-self-center"><i
+                                                                                        class="fas fa-money-bill-wave"
+                                                                                        style="padding-right: 5px;padding-left: 5px;"></i><label
+                                                                                        for="last_name"><strong>Category</strong></label>
+                                                                                </div>
+                                                                                <div class="col align-self-center">
+                                                                                    <select class="custom-select"
+                                                                                        id="utility-name-5" required=""
+                                                                                        autofocus="" name="score">
+                                                                                        <option value="1">Electric
+                                                                                        </option>
+                                                                                        <option value="1">Telephone
+                                                                                        </option>
+                                                                                        <option value="2">Gas</option>
+                                                                                        <option value="2">Other</option>
+                                                                                    </select></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-row" style="margin-top: 25px;">
+                                                                            <div class="col align-self-center"><label
+                                                                                    for="first_name"><i
+                                                                                        class="far fa-sticky-note"
+                                                                                        style="padding-right: 5px;padding-left: 5px;"></i><strong>Notes</strong></label><textarea
+                                                                                    class="form-control form-control-lg"
+                                                                                    id="utility-description-1"
+                                                                                    autofocus="" autocomplete="off"
+                                                                                    spellcheck="false"
+                                                                                    style="width: 100%;min-height: 200px;font-size: 16px;"
+                                                                                    placeholder="describe here..."></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer"
+                                                                            style="margin-top: 25px;">
+                                                                            <button class="btn btn-light" type="button"
+                                                                                data-dismiss="modal">Cancel</button><button
+                                                                                class="btn btn-danger" type="submit"><i
+                                                                                    class="far fa-trash-alt"
+                                                                                    style="padding-right: 5px;padding-left: 5px;"></i>Delete</button><button
+                                                                                class="btn btn-primary" type="submit"><i
+                                                                                    class="far fa-save"
+                                                                                    style="padding-right: 5px;padding-left: 5px;"></i>Update</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- End: edit field -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End: Default-Table-Row -->
+                                <!-- Start: Default-Table-Row -->
+                                <div class="row justify-content-center" id="User-Table-Row" style="margin-top: 50px;">
+                                    <div class="col-auto">
+                                        <p>User Generated Records. Users add the records that are relevant to them</p>
+                                        <!-- Start: User-Generated-Table -->
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-hover table-dark table-sm">
+                                                <thead class="text-capitalize text-center text-white">
+                                                    <tr class="bg-secondary">
+                                                        <th><i class="far fa-building"
+                                                                style="margin-right: 5px;"></i>Type
+                                                        </th>
+                                                        <th><i class="far fa-building"
+                                                                style="margin-right: 5px;"></i>Utilities
+                                                            /
+                                                            Recurring</th>
+                                                        <th data-toggle="tooltip" data-bs-tooltip=""
+                                                            title="Can Anonymize?">
+                                                            <i class="fas fa-question" style="margin-right: 5px;"></i>
+                                                        </th>
+                                                        <th><i class="far fa-sticky-note"
+                                                                style="padding-right: 5px;"></i>Notes
+                                                        </th>
+                                                        <th data-toggle="tooltip" data-bs-tooltip="" title="Score"><i
+                                                                class="fas fa-balance-scale-left"
+                                                                style="margin-right: 5px;text-align: center;"></i></th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><i class="fas fa-plug"
+                                                                style="margin-right: 10px;margin-left: 10px;"></i>Electric
+                                                        </td>
+                                                        <td><a href="https://www.comed.com" target="_blank"><img
+                                                                    src="https://icons.duckduckgo.com/ip3/www.comed.com.ico"
+                                                                    width="20" height="20"
+                                                                    style="margin-right: 10px;margin-left: 10px;">ComEd</a>
+                                                        </td>
+                                                        <td
+                                                            class="text-center justify-content-center align-items-center align-content-center">
+                                                            <i class="far fa-thumbs-up"
+                                                                style="margin-right: 5px;color: #22dd22;"></i>
+                                                        </td>
+                                                        <td class="text-center"><a href="#" data-target="#notes-111"
+                                                                data-toggle="modal"><i class="far fa-sticky-note"
+                                                                    data-toggle="tooltip" data-bs-tooltip=""></i></a>
+                                                            <div class="modal fade text-secondary" role="dialog"
+                                                                tabindex="-1" id="notes-111">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header"
+                                                                            style="background: url(&quot;img/interlaced.png&quot;);">
+                                                                            <h4 class="modal-title"><i
+                                                                                    class="far fa-sticky-note"
+                                                                                    style="margin-right: 10px;margin-left: 10px;"></i>Notes
+                                                                            </h4><button type="button" class="close"
+                                                                                data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p class="text-left">Follow these
+                                                                                instructions:&nbsp;
+                                                                            </p>
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <ul class="text-left">
+                                                                                        <li>First item</li>
+                                                                                        <li>Second</li>
+                                                                                        <li>3rd thing on the list</li>
+                                                                                        <li>Follow&nbsp;<a
+                                                                                                href="http://www.follow-this-link.com/abcdef123">this</a>&nbsp;link
+                                                                                            for a video tutorial</li>
+                                                                                    </ul>
+                                                                                    <hr style="margin-top: -13px;">
+                                                                                    <p class="text-left">Add your own
+                                                                                        personalized
+                                                                                        notes here.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer"><a
+                                                                                class="btn btn-primary" role="button"
+                                                                                href="#" data-toggle="modal"
+                                                                                data-target="#edit-notes"
+                                                                                data-dismiss="modal"><i
+                                                                                    class="fas fa-pencil-alt"
+                                                                                    style="margin-right: 10px;"></i>Edit</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal fade text-secondary" role="dialog"
+                                                                tabindex="-1" id="edit-notes">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h4 class="modal-title"><i
+                                                                                    class="far fa-sticky-note"
+                                                                                    style="margin-right: 10px;margin-left: 10px;"></i>Edit
+                                                                                Notes</h4><button type="button"
+                                                                                class="close" data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body"><textarea
+                                                                                class="form-control-lg" autofocus=""
+                                                                                style="width: 100%;height: 100%;min-height: 300px;"
+                                                                                placeholder="Follow these instructions:&nbsp;</br>     <div class=&quot;row&quot;>         <div class=&quot;col&quot;>             <ul class=&quot;text-left&quot;>                 <li>First item</li>                 <li>Second</li>                 <li>3rd thing on the list</li>                 <li>Follow&nbsp;<a href=&quot;http://www.follow-this-link.com/abcdef123&quot;>this</a>&nbsp;link for a video tutorial</li>             </ul>           "></textarea>
+                                                                        </div>
+                                                                        <div class="modal-footer"><button
+                                                                                class="btn btn-primary" type="button"><i
+                                                                                    class="far fa-save"
+                                                                                    style="margin-right: 10px;"></i>Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td style="text-align: center;">4</td>
+                                                        <td style="text-align: center;"><a href="#" data-toggle="modal"
+                                                                data-target="#edit-record-modal"><i
+                                                                    class="fas fa-pencil-alt" data-toggle="tooltip"
+                                                                    data-bs-tooltip=""
+                                                                    style="padding-right: 5px;margin-right: 5px;margin-left: 5px;"
+                                                                    title="Edit"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-wifi"
+                                                                style="margin-right: 10px;margin-left: 10px;"></i>Internet
+                                                        </td>
+                                                        <td><a href="www.xfinity.com" target="_blank"><img
+                                                                    src="https://icons.duckduckgo.com/ip3/www.xfinity.com.ico"
+                                                                    width="20" height="20"
+                                                                    style="margin-right: 10px;margin-left: 10px;">Comcast
+                                                                Xfinity</a></td>
+                                                        <td
+                                                            class="text-center justify-content-center align-items-center align-content-center">
+                                                            <i class="far fa-thumbs-up"
+                                                                style="margin-right: 5px;color: #22dd22;"></i>
+                                                        </td>
+                                                        <td class="text-center"><a href="#" data-target="#notes-111"
+                                                                data-toggle="modal"><i class="far fa-sticky-note"
+                                                                    data-toggle="tooltip" data-bs-tooltip=""></i></a>
+                                                            <div class="modal fade text-secondary" role="dialog"
+                                                                tabindex="-1" id="notes-111">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header"
+                                                                            style="background: url(&quot;img/interlaced.png&quot;);">
+                                                                            <h4 class="modal-title"><i
+                                                                                    class="far fa-sticky-note"
+                                                                                    style="margin-right: 10px;margin-left: 10px;"></i>Notes
+                                                                            </h4><button type="button" class="close"
+                                                                                data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p class="text-left">Follow these
+                                                                                instructions:&nbsp;
+                                                                            </p>
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <ul class="text-left">
+                                                                                        <li>First item</li>
+                                                                                        <li>Second</li>
+                                                                                        <li>3rd thing on the list</li>
+                                                                                        <li>Follow&nbsp;<a
+                                                                                                href="http://www.follow-this-link.com/abcdef123">this</a>&nbsp;link
+                                                                                            for a video tutorial</li>
+                                                                                    </ul>
+                                                                                    <hr style="margin-top: -13px;">
+                                                                                    <p class="text-left">Add your own
+                                                                                        personalized
+                                                                                        notes here.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer"><a
+                                                                                class="btn btn-primary" role="button"
+                                                                                href="#" data-toggle="modal"
+                                                                                data-target="#edit-notes"
+                                                                                data-dismiss="modal"><i
+                                                                                    class="fas fa-pencil-alt"
+                                                                                    style="margin-right: 10px;"></i>Edit</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal fade text-secondary" role="dialog"
+                                                                tabindex="-1" id="edit-notes">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h4 class="modal-title"><i
+                                                                                    class="far fa-sticky-note"
+                                                                                    style="margin-right: 10px;margin-left: 10px;"></i>Edit
+                                                                                Notes</h4><button type="button"
+                                                                                class="close" data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body"><textarea
+                                                                                class="form-control-lg" autofocus=""
+                                                                                style="width: 100%;height: 100%;min-height: 300px;"
+                                                                                placeholder="Follow these instructions:&nbsp;</br>     <div class=&quot;row&quot;>         <div class=&quot;col&quot;>             <ul class=&quot;text-left&quot;>                 <li>First item</li>                 <li>Second</li>                 <li>3rd thing on the list</li>                 <li>Follow&nbsp;<a href=&quot;http://www.follow-this-link.com/abcdef123&quot;>this</a>&nbsp;link for a video tutorial</li>             </ul>           "></textarea>
+                                                                        </div>
+                                                                        <div class="modal-footer"><button
+                                                                                class="btn btn-primary" type="button"><i
+                                                                                    class="far fa-save"
+                                                                                    style="margin-right: 10px;"></i>Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td style="text-align: center;">4</td>
+                                                        <td style="text-align: center;"><a href="#" data-toggle="modal"
+                                                                data-target="#edit-record-modal"><i
+                                                                    class="fas fa-pencil-alt" data-toggle="tooltip"
+                                                                    data-bs-tooltip=""
+                                                                    style="padding-right: 5px;margin-right: 5px;margin-left: 5px;"
+                                                                    title="Edit"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-water"
+                                                                style="margin-right: 10px;margin-left: 10px;"></i>Water
+                                                        </td>
+                                                        <td><a href="www.irwd.com" target="_blank"><img
+                                                                    src="https://icons.duckduckgo.com/ip3/www.irwd.com.ico"
+                                                                    width="20" height="20"
+                                                                    style="margin-right: 10px;margin-left: 10px;">Irvine
+                                                                Ranch
+                                                                Water
+                                                                District</a></td>
+                                                        <td
+                                                            class="text-center justify-content-center align-items-center align-content-center">
+                                                            <i class="far fa-thumbs-down"
+                                                                style="margin-right: 5px;color: #dd5900;"></i>
+                                                        </td>
+                                                        <td class="text-center"><a href="#" data-target="#notes-111"
+                                                                data-toggle="modal"><i class="far fa-sticky-note"
+                                                                    data-toggle="tooltip" data-bs-tooltip=""></i></a>
+                                                            <div class="modal fade text-secondary" role="dialog"
+                                                                tabindex="-1" id="notes-111">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header"
+                                                                            style="background: url(&quot;img/interlaced.png&quot;);">
+                                                                            <h4 class="modal-title"><i
+                                                                                    class="far fa-sticky-note"
+                                                                                    style="margin-right: 10px;margin-left: 10px;"></i>Notes
+                                                                            </h4><button type="button" class="close"
+                                                                                data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p class="text-left">Follow these
+                                                                                instructions:&nbsp;
+                                                                            </p>
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <ul class="text-left">
+                                                                                        <li>First item</li>
+                                                                                        <li>Second</li>
+                                                                                        <li>3rd thing on the list</li>
+                                                                                        <li>Follow&nbsp;<a
+                                                                                                href="http://www.follow-this-link.com/abcdef123">this</a>&nbsp;link
+                                                                                            for a video tutorial</li>
+                                                                                    </ul>
+                                                                                    <hr style="margin-top: -13px;">
+                                                                                    <p class="text-left">Add your own
+                                                                                        personalized
+                                                                                        notes here.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer"><a
+                                                                                class="btn btn-primary" role="button"
+                                                                                href="#" data-toggle="modal"
+                                                                                data-target="#edit-notes"
+                                                                                data-dismiss="modal"><i
+                                                                                    class="fas fa-pencil-alt"
+                                                                                    style="margin-right: 10px;"></i>Edit</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal fade text-secondary" role="dialog"
+                                                                tabindex="-1" id="edit-notes">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h4 class="modal-title"><i
+                                                                                    class="far fa-sticky-note"
+                                                                                    style="margin-right: 10px;margin-left: 10px;"></i>Edit
+                                                                                Notes</h4><button type="button"
+                                                                                class="close" data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body"><textarea
+                                                                                class="form-control-lg" autofocus=""
+                                                                                style="width: 100%;height: 100%;min-height: 300px;"
+                                                                                placeholder="Follow these instructions:&nbsp;</br>     <div class=&quot;row&quot;>         <div class=&quot;col&quot;>             <ul class=&quot;text-left&quot;>                 <li>First item</li>                 <li>Second</li>                 <li>3rd thing on the list</li>                 <li>Follow&nbsp;<a href=&quot;http://www.follow-this-link.com/abcdef123&quot;>this</a>&nbsp;link for a video tutorial</li>             </ul>           "></textarea>
+                                                                        </div>
+                                                                        <div class="modal-footer"><button
+                                                                                class="btn btn-primary" type="button"><i
+                                                                                    class="far fa-save"
+                                                                                    style="margin-right: 10px;"></i>Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td style="text-align: center;">4</td>
+                                                        <td style="text-align: center;"><a href="#" data-toggle="modal"
+                                                                data-target="#edit-record-modal"><i
+                                                                    class="fas fa-pencil-alt" data-toggle="tooltip"
+                                                                    data-bs-tooltip=""
+                                                                    style="padding-right: 5px;margin-right: 5px;margin-left: 5px;"
+                                                                    title="Edit"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-trash-restore"
+                                                                style="margin-right: 10px;margin-left: 10px;"></i>Trash
+                                                        </td>
+                                                        <td><a href="www.wm.com" target="_blank"><img
+                                                                    src="https://icons.duckduckgo.com/ip3/www.wm.com.ico"
+                                                                    width="20" height="20"
+                                                                    style="margin-right: 10px;margin-left: 10px;">Waste
+                                                                Management</a></td>
+                                                        <td
+                                                            class="text-center justify-content-center align-items-center align-content-center">
+                                                            <i class="far fa-thumbs-up"
+                                                                style="margin-right: 5px;color: #22dd22;"></i>
+                                                        </td>
+                                                        <td class="text-center"><a href="#" data-target="#notes-111"
+                                                                data-toggle="modal"><i class="far fa-sticky-note"
+                                                                    data-toggle="tooltip" data-bs-tooltip=""></i></a>
+                                                            <div class="modal fade text-secondary" role="dialog"
+                                                                tabindex="-1" id="notes-111">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header"
+                                                                            style="background: url(&quot;img/interlaced.png&quot;);">
+                                                                            <h4 class="modal-title"><i
+                                                                                    class="far fa-sticky-note"
+                                                                                    style="margin-right: 10px;margin-left: 10px;"></i>Notes
+                                                                            </h4><button type="button" class="close"
+                                                                                data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p class="text-left">Follow these
+                                                                                instructions:&nbsp;
+                                                                            </p>
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <ul class="text-left">
+                                                                                        <li>First item</li>
+                                                                                        <li>Second</li>
+                                                                                        <li>3rd thing on the list</li>
+                                                                                        <li>Follow&nbsp;<a
+                                                                                                href="http://www.follow-this-link.com/abcdef123">this</a>&nbsp;link
+                                                                                            for a video tutorial</li>
+                                                                                    </ul>
+                                                                                    <hr style="margin-top: -13px;">
+                                                                                    <p class="text-left">Add your own
+                                                                                        personalized
+                                                                                        notes here.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer"><a
+                                                                                class="btn btn-primary" role="button"
+                                                                                href="#" data-toggle="modal"
+                                                                                data-target="#edit-notes"
+                                                                                data-dismiss="modal"><i
+                                                                                    class="fas fa-pencil-alt"
+                                                                                    style="margin-right: 10px;"></i>Edit</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal fade text-secondary" role="dialog"
+                                                                tabindex="-1" id="edit-notes">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h4 class="modal-title"><i
+                                                                                    class="far fa-sticky-note"
+                                                                                    style="margin-right: 10px;margin-left: 10px;"></i>Edit
+                                                                                Notes</h4><button type="button"
+                                                                                class="close" data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body"><textarea
+                                                                                class="form-control-lg" autofocus=""
+                                                                                style="width: 100%;height: 100%;min-height: 300px;"
+                                                                                placeholder="Follow these instructions:&nbsp;</br>     <div class=&quot;row&quot;>         <div class=&quot;col&quot;>             <ul class=&quot;text-left&quot;>                 <li>First item</li>                 <li>Second</li>                 <li>3rd thing on the list</li>                 <li>Follow&nbsp;<a href=&quot;http://www.follow-this-link.com/abcdef123&quot;>this</a>&nbsp;link for a video tutorial</li>             </ul>           "></textarea>
+                                                                        </div>
+                                                                        <div class="modal-footer"><button
+                                                                                class="btn btn-primary" type="button"><i
+                                                                                    class="far fa-save"
+                                                                                    style="margin-right: 10px;"></i>Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td style="text-align: center;">4</td>
+                                                        <td style="text-align: center;"><a href="#" data-toggle="modal"
+                                                                data-target="#edit-record-modal"><i
+                                                                    class="fas fa-pencil-alt" data-toggle="tooltip"
+                                                                    data-bs-tooltip=""
+                                                                    style="padding-right: 5px;margin-right: 5px;margin-left: 5px;"
+                                                                    title="Edit"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-phone-alt"
+                                                                style="margin-right: 10px;margin-left: 10px;"></i>Phone
+                                                        </td>
+                                                        <td><a href="www.t-mobile.com" target="_blank"><img
+                                                                    src="https://icons.duckduckgo.com/ip3/www.t-mobile.com.ico"
+                                                                    width="20" height="20"
+                                                                    style="margin-right: 10px;margin-left: 10px;">T-Mobile</a>
+                                                        </td>
+                                                        <td
+                                                            class="text-center justify-content-center align-items-center align-content-center">
+                                                            <i class="far fa-thumbs-up"
+                                                                style="margin-right: 5px;color: #22dd22;"></i>
+                                                        </td>
+                                                        <td class="text-center"><a href="#" data-target="#notes-111"
+                                                                data-toggle="modal"><i class="far fa-sticky-note"
+                                                                    data-toggle="tooltip" data-bs-tooltip=""></i></a>
+                                                            <div class="modal fade text-secondary" role="dialog"
+                                                                tabindex="-1" id="notes-111">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header"
+                                                                            style="background: url(&quot;img/interlaced.png&quot;);">
+                                                                            <h4 class="modal-title"><i
+                                                                                    class="far fa-sticky-note"
+                                                                                    style="margin-right: 10px;margin-left: 10px;"></i>Notes
+                                                                            </h4><button type="button" class="close"
+                                                                                data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p class="text-left">Follow these
+                                                                                instructions:&nbsp;
+                                                                            </p>
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <ul class="text-left">
+                                                                                        <li>First item</li>
+                                                                                        <li>Second</li>
+                                                                                        <li>3rd thing on the list</li>
+                                                                                        <li>Follow&nbsp;<a
+                                                                                                href="http://www.follow-this-link.com/abcdef123">this</a>&nbsp;link
+                                                                                            for a video tutorial</li>
+                                                                                    </ul>
+                                                                                    <hr style="margin-top: -13px;">
+                                                                                    <p class="text-left">Add your own
+                                                                                        personalized
+                                                                                        notes here.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer"><a
+                                                                                class="btn btn-primary" role="button"
+                                                                                href="#" data-toggle="modal"
+                                                                                data-target="#edit-notes"
+                                                                                data-dismiss="modal"><i
+                                                                                    class="fas fa-pencil-alt"
+                                                                                    style="margin-right: 10px;"></i>Edit</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal fade text-secondary" role="dialog"
+                                                                tabindex="-1" id="edit-notes">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h4 class="modal-title"><i
+                                                                                    class="far fa-sticky-note"
+                                                                                    style="margin-right: 10px;margin-left: 10px;"></i>Edit
+                                                                                Notes</h4><button type="button"
+                                                                                class="close" data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body"><textarea
+                                                                                class="form-control-lg" autofocus=""
+                                                                                style="width: 100%;height: 100%;min-height: 300px;"
+                                                                                placeholder="Follow these instructions:&nbsp;</br>     <div class=&quot;row&quot;>         <div class=&quot;col&quot;>             <ul class=&quot;text-left&quot;>                 <li>First item</li>                 <li>Second</li>                 <li>3rd thing on the list</li>                 <li>Follow&nbsp;<a href=&quot;http://www.follow-this-link.com/abcdef123&quot;>this</a>&nbsp;link for a video tutorial</li>             </ul>           "></textarea>
+                                                                        </div>
+                                                                        <div class="modal-footer"><button
+                                                                                class="btn btn-primary" type="button"><i
+                                                                                    class="far fa-save"
+                                                                                    style="margin-right: 10px;"></i>Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td style="text-align: center;">4</td>
+                                                        <td style="text-align: center;"><a href="#" data-toggle="modal"
+                                                                data-target="#edit-record-modal"><i
+                                                                    class="fas fa-pencil-alt" data-toggle="tooltip"
+                                                                    data-bs-tooltip=""
+                                                                    style="padding-right: 5px;margin-right: 5px;margin-left: 5px;"
+                                                                    title="Edit"></i></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div><!-- End: User-Generated-Table -->
+                                    </div>
+                                </div><!-- End: Default-Table-Row -->
+                                <div class="row align-items-center">
+                                    <div
+                                        class="col text-center d-xl-flex align-self-center justify-content-xl-center align-items-xl-center">
+                                        <button class="btn btn-primary text-right" type="button"
+                                            style="margin-top: 15px;" data-toggle="modal"
+                                            data-target="#add-record-modal"><i class="fas fa-plus"
+                                                style="margin-right: 5px;margin-left: 5px;"></i>Add Record</button>
+                                        <div class="modal fade" role="dialog" tabindex="-1" id="add-record-modal">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header"
+                                                        style="background: url(&quot;img/interlaced.png&quot;);">
+                                                        <h4 class="modal-title"><i class="fas fa-database"
+                                                                style="padding-right: 5px;padding-left: 5px;"></i>Add
+                                                            Record<span
+                                                                class="justify-content-xl-end align-items-xl-center"
+                                                                style="font-size: 14px;text-align: center;margin-left: 20px;">Enter
+                                                                Default Values</span></h4><button type="button"
+                                                            class="close" data-dismiss="modal" aria-label="Close"><span
+                                                                aria-hidden="true">×</span></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col text-left">
+                                                                    <form>
+                                                                        <div class="form-row" style="margin-top: 25px;">
+                                                                            <div class="col"><label for="username"><i
+                                                                                        class="fas fa-tag"
+                                                                                        style="padding-right: 5px;padding-left: 5px;"></i><strong>Name</strong></label><input
+                                                                                    class="form-control" type="text"
+                                                                                    id="sitename-1"
+                                                                                    placeholder="Website Name"
+                                                                                    name="sitename" autofocus=""></div>
+                                                                            <div class="col"><label for="email"><i
+                                                                                        class="fas fa-link"
+                                                                                        style="padding-right: 5px;padding-left: 5px;"></i><strong>URL</strong></label><input
+                                                                                    class="form-control" type="url"
+                                                                                    placeholder="https://www.google.com"
+                                                                                    name="url" autofocus=""></div>
+                                                                        </div>
+                                                                        <div class="form-row" id="applicable-row"
+                                                                            style="margin-top: 25px;">
+                                                                            <div class="col align-self-center"><label
+                                                                                    class="col-form-label"
+                                                                                    for="first_name"><i
+                                                                                        class="far fa-thumbs-up"
+                                                                                        style="padding-right: 5px;padding-left: 5px;"></i><strong>Applicable?</strong></label>
+                                                                            </div>
+                                                                            <div class="col align-self-center"><button
+                                                                                    class="btn btn-sm btn-toggle active"
+                                                                                    type="button" data-toggle="button"
+                                                                                    aria-pressed="true"
+                                                                                    autocomplete="off">
+                                                                                    <div class="handle"></div>
+                                                                                </button></div>
+                                                                        </div>
+                                                                        <div id="recurring-row">
+                                                                            <div class="form-row"
+                                                                                style="margin-top: 25px;">
+                                                                                <div class="col align-self-center"><i
+                                                                                        class="far fa-question-circle"
+                                                                                        style="padding-right: 5px;padding-left: 5px;"></i><label
+                                                                                        for="last_name"><strong>Can
+                                                                                            Anonymize?</strong></label>
+                                                                                </div>
+                                                                                <div class="col align-self-center">
+                                                                                    <select class="custom-select"
+                                                                                        id="utility-name-6" required=""
+                                                                                        autofocus="" name="score"
+                                                                                        style="width: 70px;">
+                                                                                        <option value="1">Yes</option>
+                                                                                        <option value="2">No</option>
+                                                                                    </select></div>
+                                                                            </div>
+                                                                            <div class="form-row"
+                                                                                style="margin-top: 25px;">
+                                                                                <div class="col align-self-center"><i
+                                                                                        class="fas fa-money-bill-wave"
+                                                                                        style="padding-right: 5px;padding-left: 5px;"></i><label
+                                                                                        for="last_name"><strong>Type</strong></label>
+                                                                                </div>
+                                                                                <div class="col align-self-center">
+                                                                                    <select class="custom-select"
+                                                                                        id="utility-name-7" required=""
+                                                                                        autofocus="" name="score">
+                                                                                        <option value="1">Electric
+                                                                                        </option>
+                                                                                        <option value="1">Telephone
+                                                                                        </option>
+                                                                                        <option value="2">Gas</option>
+                                                                                        <option value="2">Other</option>
+                                                                                    </select></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-row" style="margin-top: 25px;">
+                                                                            <div class="col align-self-center"
+                                                                                data-toggle="tooltip" data-bs-tooltip=""
+                                                                                title="1=Low, 5=High Impact"><i
+                                                                                    class="fas fa-balance-scale"
+                                                                                    style="padding-right: 5px;padding-left: 5px;"></i><label
+                                                                                    for="last_name"><strong>Score</strong></label>
+                                                                            </div>
+                                                                            <div class="col align-self-center"><select
+                                                                                    class="custom-select"
+                                                                                    id="utility-name-2" required=""
+                                                                                    autofocus="" name="score"
+                                                                                    style="width: 70px;">
+                                                                                    <option value="1">1</option>
+                                                                                    <option value="2">2</option>
+                                                                                    <option value="3">3</option>
+                                                                                    <option value="4">4</option>
+                                                                                    <option value="5">5</option>
+                                                                                </select></div>
+                                                                        </div>
+                                                                        <div class="form-row" style="margin-top: 25px;">
+                                                                            <div class="col align-self-center"><label
+                                                                                    for="first_name"><i
+                                                                                        class="far fa-sticky-note"
+                                                                                        style="padding-right: 5px;padding-left: 5px;"></i><strong>Notes</strong></label><textarea
+                                                                                    class="form-control form-control-lg"
+                                                                                    id="utility-description-2"
+                                                                                    autofocus="" autocomplete="off"
+                                                                                    spellcheck="false"
+                                                                                    style="width: 100%;min-height: 200px;font-size: 16px;"
+                                                                                    placeholder="describe here..."></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer"
+                                                                            style="margin-top: 25px;">
+                                                                            <button class="btn btn-light" type="button"
+                                                                                data-dismiss="modal">Cancel</button><button
+                                                                                class="btn btn-primary show-toast-success"
+                                                                                type="submit"><i class="far fa-save"
+                                                                                    style="padding-right: 5px;padding-left: 5px;"></i>Add</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <%- include('../common/footer'); -%>

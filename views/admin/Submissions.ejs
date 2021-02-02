@@ -1,0 +1,230 @@
+<%- include('../common/header'); -%>
+
+    <body id="page-top" style="background: transparent;">
+        <div id="wrapper">
+            <%- include('../common/sidebar'); -%>
+
+                <div class="d-flex flex-column" id="content-wrapper">
+                    <div id="content" class="d-flex flex-column">
+                        <%- include('../common/headerStrip'); -%>
+
+                            <div class="container-fluid bg-dark border-dark">
+                                <div class="row text-justify justify-content-center" style="width: 100%;">
+                                    <div class="col align-self-center mb-4">
+                                        <h1 class="text-dark mb-0" id="section-heading">Submissions</h1>
+                                        <p style="margin-top: 10px;">Review, accept or reject user submissions with a
+                                            comment.</p>
+                                        <p style="margin-top: 10px;">Arranged from oldest to newest. Review the top ones
+                                            first.</p>
+                                    </div>
+                                    <div class="col-auto align-self-center">
+                                        <div class="card-group" style="margin-right: 5px;margin-left: 5px;">
+                                            <div class="card text-center">
+                                                <div class="card-body"><i class="fas fa-database fa-fw"
+                                                        style="margin-right: 5px;margin-left: 5px;"></i><span
+                                                        class="text-secondary" style="font-size: 20px;">450</span>
+                                                    <p style="color: #919693;margin-bottom: 0px;">Records</p>
+                                                    <div class="submissions-widget"><span data-toggle="tooltip"
+                                                            data-bs-tooltip="" title="approved">Categories:</span><span
+                                                            class="text-success" data-toggle="tooltip"
+                                                            data-bs-tooltip="" id="categories" style="margin-left: 5px;"
+                                                            title="categories">7</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="card text-center d-inline-block">
+                                                <div class="card-body"><span class="d-block" data-toggle="tooltip"
+                                                        data-bs-tooltip="" style="font-size: 20px;" title="Total"><i
+                                                            class="fas fa-brain fa-fw"
+                                                            style="margin-right: 5px;margin-left: 5px;"></i>497</span>
+                                                    <p class="text-nowrap" style="color: #919693;margin-bottom: 0px;">
+                                                        Submissions</p>
+                                                    <div class="submissions-widget"><span class="text-success"
+                                                            data-toggle="tooltip" data-bs-tooltip=""
+                                                            title="approved">450</span><span
+                                                            class="text-secondary">/</span><span class="text-danger"
+                                                            data-toggle="tooltip" data-bs-tooltip=""
+                                                            title="denied">42</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- Start: changelog -->
+                                <div class="row justify-content-center timeline" style="margin-top: 25px;">
+                                    <div class="col">
+                                        <ul class="timeline">
+                                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                                <div class="timeline-arrow"></div>
+                                                <div class="d-inline-block">
+                                                    <h5 id="change-title" class="mb-0">Submission Title</h5>
+                                                </div><span class="float-right small"><i
+                                                        class="far fa-calendar-check mr-1"></i><span
+                                                        id="change-date-2">2 December, 2020</span></span>
+                                                <div><textarea class="submissions-textarea" placeholder=""
+                                                        readonly="">Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. </textarea>
+                                                </div>
+                                                <div class="text-right"><button class="btn btn-outline-primary btn-sm"
+                                                        type="button" style="margin-top: 15px;" data-toggle="modal"
+                                                        data-target="#decision-modal"><i
+                                                            class="fas fa-gavel"></i>Decision</button></div>
+                                            </li>
+                                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                                <div class="timeline-arrow"></div>
+                                                <div class="d-inline-block">
+                                                    <h5 id="change-title" class="mb-0">Submission Title</h5>
+                                                </div><span class="float-right small"><i
+                                                        class="far fa-calendar-check mr-1"></i><span
+                                                        id="change-date-2">2 December, 2020</span></span>
+                                                <div><textarea class="submissions-textarea" placeholder=""
+                                                        readonly="">Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. </textarea>
+                                                </div>
+                                                <div class="text-right"><button class="btn btn-outline-primary btn-sm"
+                                                        type="button" style="margin-top: 15px;" data-toggle="modal"
+                                                        data-target="#decision-modal"><i
+                                                            class="fas fa-gavel"></i>Decision</button></div>
+                                            </li>
+                                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                                <div class="timeline-arrow"></div>
+                                                <div class="d-inline-block">
+                                                    <h5 id="change-title" class="mb-0">Submission Title</h5>
+                                                </div><span class="float-right small"><i
+                                                        class="far fa-calendar-check mr-1"></i><span
+                                                        id="change-date-2">2 December, 2020</span></span>
+                                                <div><textarea class="submissions-textarea" placeholder=""
+                                                        readonly="">Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. </textarea>
+                                                </div>
+                                                <div class="text-right"><button class="btn btn-outline-primary btn-sm"
+                                                        type="button" style="margin-top: 15px;" data-toggle="modal"
+                                                        data-target="#decision-modal"><i
+                                                            class="fas fa-gavel"></i>Decision</button></div>
+                                            </li>
+                                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                                <div class="timeline-arrow"></div>
+                                                <div class="d-inline-block">
+                                                    <h5 id="change-title" class="mb-0">Submission Title</h5>
+                                                </div><span class="float-right small"><i
+                                                        class="far fa-calendar-check mr-1"></i><span
+                                                        id="change-date-2">2 December, 2020</span></span>
+                                                <div><textarea class="submissions-textarea" placeholder=""
+                                                        readonly="">Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. </textarea>
+                                                </div>
+                                                <div class="text-right"><button class="btn btn-outline-primary btn-sm"
+                                                        type="button" style="margin-top: 15px;" data-toggle="modal"
+                                                        data-target="#decision-modal"><i
+                                                            class="fas fa-gavel"></i>Decision</button></div>
+                                            </li>
+                                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                                <div class="timeline-arrow"></div>
+                                                <div class="d-inline-block">
+                                                    <h5 id="change-title" class="mb-0">Submission Title</h5>
+                                                </div><span class="float-right small"><i
+                                                        class="far fa-calendar-check mr-1"></i><span
+                                                        id="change-date-2">2 December, 2020</span></span>
+                                                <div><textarea class="submissions-textarea" placeholder=""
+                                                        readonly="">Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. </textarea>
+                                                </div>
+                                                <div class="text-right"><button class="btn btn-outline-primary btn-sm"
+                                                        type="button" style="margin-top: 15px;" data-toggle="modal"
+                                                        data-target="#decision-modal"><i
+                                                            class="fas fa-gavel"></i>Decision</button></div>
+                                            </li>
+                                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                                <div class="timeline-arrow"></div>
+                                                <div class="d-inline-block">
+                                                    <h5 id="change-title" class="mb-0">Submission Title</h5>
+                                                </div><span class="float-right small"><i
+                                                        class="far fa-calendar-check mr-1"></i><span
+                                                        id="change-date-2">2 December, 2020</span></span>
+                                                <div><textarea class="submissions-textarea" placeholder=""
+                                                        readonly="">Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. </textarea>
+                                                </div>
+                                                <div class="text-right"><button class="btn btn-outline-primary btn-sm"
+                                                        type="button" style="margin-top: 15px;" data-toggle="modal"
+                                                        data-target="#decision-modal"><i
+                                                            class="fas fa-gavel"></i>Decision</button></div>
+                                            </li>
+                                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                                <div class="timeline-arrow"></div>
+                                                <div class="d-inline-block">
+                                                    <h5 id="change-title" class="mb-0">Submission Title</h5>
+                                                </div><span class="float-right small"><i
+                                                        class="far fa-calendar-check mr-1"></i><span
+                                                        id="change-date-2">2 December, 2020</span></span>
+                                                <div><textarea class="submissions-textarea" placeholder=""
+                                                        readonly="">Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. </textarea>
+                                                </div>
+                                                <div class="text-right"><button class="btn btn-outline-primary btn-sm"
+                                                        type="button" style="margin-top: 15px;" data-toggle="modal"
+                                                        data-target="#decision-modal"><i
+                                                            class="fas fa-gavel"></i>Decision</button></div>
+                                            </li>
+                                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                                                <div class="timeline-arrow"></div>
+                                                <div class="d-inline-block">
+                                                    <h5 id="change-title" class="mb-0">Submission Title</h5>
+                                                </div><span class="float-right small"><i
+                                                        class="far fa-calendar-check mr-1"></i><span
+                                                        id="change-date-2">2 December, 2020</span></span>
+                                                <div><textarea class="submissions-textarea" placeholder=""
+                                                        readonly="">Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. Description of the submission goes here. User describing the change, addition or correction. </textarea>
+                                                </div>
+                                                <div class="text-right"><button class="btn btn-outline-primary btn-sm"
+                                                        type="button" style="margin-top: 15px;" data-toggle="modal"
+                                                        data-target="#decision-modal"><i
+                                                            class="fas fa-gavel"></i>Decision</button></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="modal fade" role="dialog" tabindex="-1" id="decision-modal">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header"
+                                                    style="background: url(&quot;assets/img/interlaced.png&quot;);">
+                                                    <h4 class="modal-title"><i class="fas fa-brain"
+                                                            style="padding-right: 5px;padding-left: 5px;"></i>Decision
+                                                    </h4><button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                </div><!-- Start: change password -->
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p class="text-justify">User who submitted:&nbsp;<span
+                                                                    id="username"
+                                                                    style="color: var(--danger);font-weight: normal;">JohnDoe123</span>
+                                                            </p>
+                                                            <div class="form-group form-rounded-right"><label>Points to
+                                                                    allocate</label><input type="number" id="points"
+                                                                    class="form-rounded" min="1" step="1"
+                                                                    placeholder="1" value="1"
+                                                                    style="width: 60px;margin-left: 10px;text-align: center;"><span
+                                                                    class="d-block hint-text" style="hint-text">Default:
+                                                                    1 point per submission = $1</span><textarea
+                                                                    class="form-control-lg form-rounded"
+                                                                    id="submission-comment" autofocus=""
+                                                                    autocomplete="off" spellcheck="false" required=""
+                                                                    minlength="10" maxlength="500"
+                                                                    style="width: 100%;height: 150px;margin-top: 5px;"
+                                                                    placeholder="comment..."></textarea></div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- End: change password -->
+                                                <div class="modal-footer"><button class="btn btn-light" type="button"
+                                                        data-dismiss="modal">Decide Later</button><button
+                                                        class="btn btn-success" id="btn-accept" type="submit"><i
+                                                            class="far fa-thumbs-up"
+                                                            style="padding-right: 5px;padding-left: 5px;"></i>Accept</button><button
+                                                        class="btn btn-danger" id="btn-reject" type="submit"><i
+                                                            class="far fa-thumbs-down"
+                                                            style="padding-right: 5px;padding-left: 5px;"></i>Reject</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End: changelog -->
+                                <div class="row text-center">
+                                    <div class="col text-center"><button
+                                            class="btn btn-outline-secondary justify-content-xl-center align-items-xl-center"
+                                            type="button">show more</button></div>
+                                </div>
+                            </div>
+                    </div>
+                    <%- include('../common/footer'); -%>

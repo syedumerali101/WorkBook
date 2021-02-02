@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html class="text-dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - <%- title -%>
+    </title>
+    <meta http-equiv="description" content="Take control of your own data!">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="css/Bootstrap-Payment-Form.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/custom.compiled.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/css/bootstrap4-toggle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="css/progress-circle.compiled.css">
+    <link rel="stylesheet" href="css/Social-Icons.css">
+    <link rel="stylesheet" href="css/timeline.css">
+    <link rel="stylesheet" href="css/Toggle-Switch.css">
+    <link rel="stylesheet" href="css/toggle.css">
+    <script>
+        $(document).ready(function () {
+            $('.progress .progress-bar').css("width",
+                function () {
+                    return $(this).attr("aria-valuenow") + "%";
+                }
+            )
+        });
+    </script>
+
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+//remove at production
+    </script> -->
+
+
+    <script>
+        //initialize popovers for notes
+
+        $(function () {
+            $('[data-toggle="popover"]').popover({
+                html: true
+            })
+
+                .on("mouseenter", function () {
+                    var _this = this;
+                    $(this).popover("show");
+                    $(".popover").on("mouseleave", function () {
+                        $(_this).popover('hide');
+                    });
+                })
+
+                .on("mouseleave", function () {
+                    var _this = this;
+                    setTimeout(function () {
+                        if (!$(".popover:hover").length) {
+                            $(_this).popover("hide");
+                        }
+                    }, 500);
+                });
+        })
+
+        $('.popover-dismiss').popover({
+            trigger: 'click'
+        })
+
+    </script>
+
+    <script>
+        $(function () {
+            $("#switch-mfa").change(function () {
+                if ($(this).is(":checked")) {
+                    $(".contentB").show();
+                    $(".contentA").hide();
+                } else {
+                    $(".contentB").hide();
+                    $(".contentA").show();
+                }
+            });
+        });
+    </script>
+
+    <script src="https://canvasjs.com/script/canvasjs.min.js"></script>
+
+    <script>
+        //Privacy Score Stackked Bar Chart
+
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("privacy-score-chart", {
+                animationEnabled: true,
+                theme: "light1", //"light1", "dark1", "dark2"
+
+                axisY: {
+                    interval: 10,
+                    suffix: "%"
+                },
+                toolTip: {
+                    shared: false
+                },
+                data: [{
+                    type: "stackedBar100",
+                    toolTipContent: "<b>{name}:</b> {y} (#percent%)",
+                    showInLegend: true,
+                    name: "Score",
+                    dataPoints: [
+                        { y: 300, label: "Score" },
+                    ]
+                },
+                {
+                    type: "stackedBar100",
+                    toolTipContent: "<b>{name}:</b> {y} (#percent%)",
+                    showInLegend: true,
+                    name: "Total",
+                    dataPoints: [
+                        { y: 756, label: "Total" },
+                    ]
+                },
+                ]
+            });
+            chart.render();
+
+        }
+
+    </script>
+
+
+    </script>
+</head>

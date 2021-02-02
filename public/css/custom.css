@@ -1,0 +1,7 @@
+.btn{
+    transition:all .5s linear;
+  }
+  
+  .fadeOut{
+    opacity: 0.2;
+  }

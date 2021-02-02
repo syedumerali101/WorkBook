@@ -1,0 +1,190 @@
+<%- include('common/header'); -%>
+    <% if (message.length> 0) { %>
+        <div class="alert alert-danger">
+            <%= message %>
+        </div>
+        <% } %>
+
+            <body id="page-top" style="background: transparent;">
+                <div id="content-wrapper" style="background: transparent;">
+                    <div id="content" class="d-flex flex-column min-vh-100">
+                        <div class="container-fluid bg-dark border-dark"
+                            style="background: url(&quot;img/dark-honeycomb.png&quot;), rgb(37,36,36);padding-top: 24px;width: 100%;">
+                            <!-- Start: header -->
+                            <div class="row">
+                                <div class="col text-center text-sm-center text-md-left text-lg-left text-xl-left"><a
+                                        href="/"><img class="logo" src="img/PrivacyBattle.png"></a></div>
+                            </div>
+                            <!-- End: header -->
+                            <div class="row justify-content-center align-items-center" style="height: 100%;">
+                                <div class="col-auto">
+                                    <div class="row text-center justify-content-center">
+                                        <div class="col">
+                                            <p id="sign-up-link" style="font-size: 16;">No account yet?&nbsp;<a
+                                                    href="/signup" style="margin-right: 10px;margin-left: 10px;">Sign
+                                                    Up</a>
+                                            </p>
+                                            <p id="sign-in-link" style="font-size: 16; display:none;">Already&nbsp; have
+                                                an
+                                                account?&nbsp;<a href="/login"
+                                                    style="margin-right: 10px;margin-left: 10px;">Sign In</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-4" style="min-width: 300px;">
+                                        <div class="card-header py-3"
+                                            style="background: url(&quot;img/interlaced.png&quot;);">
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col mr-2">
+                                                    <h4 class="text-center mb-0"><strong>Log In</strong><br></h4>
+                                                </div>
+                                                <div class="col-1"><i class="fas fa-shield-alt"
+                                                        style="padding-right: 5px;padding-left: 5px;font-size: 30px;"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col" style="padding-right: 40px;padding-left: 40px;">
+                                            <form class="user" style="margin-top: 20px;" action="/login" method="POST">
+                                                <div class="form-group">
+                                                    <input class="form-control form-control-user" type="text"
+                                                        id="username" placeholder="username" name="username"
+                                                        minlength="3" required="" maxlength="50">
+                                                    <input class="form-control form-control-user" type="password"
+                                                        id="password" placeholder="Password" name="password"
+                                                        required="">
+                                                    <div id="signup-div" style="display:none;">
+                                                        <input class="form-control form-control-user" type="email"
+                                                            placeholder="email" inputmode="email" minlength="8"
+                                                            maxlength="50">
+                                                        <span class="d-xl-flex justify-content-xl-center"
+                                                            style="font-size: 10px;">Optional (for notifications)
+                                                        </span>
+                                                        <input class="form-control form-control-user" type="text"
+                                                            id="referral" placeholder="referral code" name="referral"
+                                                            maxlength="10" minlength="5">
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox small">
+                                                        <div class="form-check"><input
+                                                                class="form-check-input custom-control-input"
+                                                                type="checkbox" id="formCheck-1"><label
+                                                                class="form-check-label custom-control-label"
+                                                                for="formCheck-1">Remember Me</label></div>
+                                                    </div>
+                                                    <button class="btn btn-primary btn-block text-white btn-user"
+                                                        type="submit">Log In</button>
+                                                </div>
+                                                <hr>
+                                            </form>
+                                            <div class="text-center" style="margin-bottom: 20px;"><a class="small"
+                                                    href="#pass-reset-modal" data-toggle="modal">Forgot Password?</a>
+                                            </div>
+                                            <div class="modal fade" role="dialog" tabindex="-1" id="pass-reset-modal">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header"
+                                                            style="background: url(&quot;img/interlaced.png&quot;);">
+                                                            <h4 class="modal-title"><i class="fas fa-recycle"
+                                                                    style="padding-right: 5px;padding-left: 5px;"></i>Password
+                                                                Reset
+                                                            </h4>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close"><span
+                                                                    aria-hidden="true">×</span></button>
+                                                        </div>
+                                                        <!-- Start: change password -->
+                                                        <div class="modal-body">
+                                                            <p>Enter the username or email used to sign up. An email
+                                                                will be
+                                                                sent to that address with instructions.
+                                                            </p>
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div
+                                                                        class="input-group flex-nowrap input-group mb-3">
+                                                                        <span
+                                                                            class="input-group-prepend input-group-text"
+                                                                            style="border-top-left-radius: 15px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;border-bottom-left-radius: 15px;"><i
+                                                                                class="fas fa-id-card-alt"
+                                                                                style="color: #919693;padding-right: 5px;padding-left: 5px;"></i></span><input
+                                                                            type="text" class="form-control"
+                                                                            minlength="3"
+                                                                            placeholder="username or email" required="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- End: change password -->
+                                                        <div class="modal-footer"><button class="btn btn-light"
+                                                                type="button"
+                                                                data-dismiss="modal">Cancel</button><button
+                                                                class="btn btn-danger" type="button"><i
+                                                                    class="fas fa-recycle"
+                                                                    style="padding-right: 5px;padding-left: 5px;"></i>Reset</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Start: info -->
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-2 justify-content-center"
+                                style="margin-top: 50px;margin-bottom: 50px;">
+                                <div class="col order-1" style="max-width: 500px;">
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-auto" style="padding: 0;"><i
+                                                class="fa fa-check-circle-o info-icon" style="color: var(--green);"></i>
+                                        </div>
+                                        <div class="col">
+                                            <h4>Information we store about you</h4>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <ul class="small">
+                                                <li>Username (as a unique identifier and to count the users in the
+                                                    system)</li>
+                                                <li>Subscription Tier (to assign privileges)</li>
+                                                <li>Points (as we assign them to you)</li>
+                                                <li>Optional Stored Payment info (as it's transmitted to the payment
+                                                    gateway.
+                                                    Use a virtual credit card)
+                                                </li>
+                                                <li>That's it, we don't need to know anything else to offer this
+                                                    service!</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col order-2" style="max-width: 500px;">
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-auto" style="padding: 0;"><i class="fa fa-ban info-icon"
+                                                style="color: var(--danger);"></i></div>
+                                        <div class="col">
+                                            <h4>Information we DON'T store about you</h4>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <ul class="small">
+                                                <li>IP Address (Please Use a VPN nonetheless)&nbsp;</li>
+                                                <li>OS, Browser user-agent or any fingerprinting</li>
+                                                <li>Sign-in Logs (we don't need to know when you logged in, what you
+                                                    did, etc)
+                                                </li>
+                                                <li>Stored table data (It's end-to-end encrypted)</li>
+                                                <li>Your password (It's also E2EE. You lose it, you lose your account,
+                                                    for good!
+                                                    Use a password manager and MFA)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End: info -->
+                        </div>
+                    </div>
+                </div>
+                <%- include('common/footer'); -%>

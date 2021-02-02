@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Profile - Privacy Dashboard</title>
+    <meta http-equiv="description" content="Take control of your own data!">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/Bootstrap-Payment-Form.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/custom.compiled.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/css/bootstrap4-toggle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/progress-circle.compiled.css">
+    <link rel="stylesheet" href="assets/css/Social-Icons.css">
+    <link rel="stylesheet" href="assets/css/timeline.css">
+    <link rel="stylesheet" href="assets/css/Toggle-Switch.css">
+    <link rel="stylesheet" href="assets/css/toggle.css">
+    <script>
+        $(document).ready(function () {
+            $('.progress .progress-bar').css("width",
+                function () {
+                    return $(this).attr("aria-valuenow") + "%";
+                }
+            )
+        });
+    </script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+//remove at production
+    </script>
+
+
+    <script>
+        //initialize popovers for notes
+
+        $(function () {
+            $('[data-toggle="popover"]').popover({
+                html: true
+            })
+
+                .on("mouseenter", function () {
+                    var _this = this;
+                    $(this).popover("show");
+                    $(".popover").on("mouseleave", function () {
+                        $(_this).popover('hide');
+                    });
+                })
+
+                .on("mouseleave", function () {
+                    var _this = this;
+                    setTimeout(function () {
+                        if (!$(".popover:hover").length) {
+                            $(_this).popover("hide");
+                        }
+                    }, 500);
+                });
+        })
+
+        $('.popover-dismiss').popover({
+            trigger: 'click'
+        })
+
+    </script>
+
+    <script>
+        $(function () {
+            $("#switch-mfa").change(function () {
+                if ($(this).is(":checked")) {
+                    $(".contentB").show();
+                    $(".contentA").hide();
+                } else {
+                    $(".contentB").hide();
+                    $(".contentA").show();
+                }
+            });
+        });
+    </script>
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <script>
+        //Privacy Score Stackked Bar Chart
+
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("privacy-score-chart", {
+                animationEnabled: true,
+                theme: "light1", //"light1", "dark1", "dark2"
+
+                axisY: {
+                    interval: 10,
+                    suffix: "%"
+                },
+                toolTip: {
+                    shared: false
+                },
+                data: [{
+                    type: "stackedBar100",
+                    toolTipContent: "<b>{name}:</b> {y} (#percent%)",
+                    showInLegend: true,
+                    name: "Score",
+                    dataPoints: [
+                        { y: 300, label: "Score" },
+                    ]
+                },
+                {
+                    type: "stackedBar100",
+                    toolTipContent: "<b>{name}:</b> {y} (#percent%)",
+                    showInLegend: true,
+                    name: "Total",
+                    dataPoints: [
+                        { y: 756, label: "Total" },
+                    ]
+                },
+                ]
+            });
+            chart.render();
+
+        }
+
+    </script>
+
+
+    </script>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav
+            class="navbar navbar-dark navbar-expand-lg bg-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0"><a
+                    class="navbar-brand d-block justify-content-center align-items-center sidebar-brand mx-0"
+                    href="index.html">
+                    <div id="logo" class="sidebar-brand-icon logo-image"><img class="pulse animated"
+                            src="assets/img/PrivacyBattle.png"></div>
+                    <div class="text-secondary sidebar-brand-text mx-3" style="max-width: 100%;">
+                        <h6 class="sidebar-brand-text">Dashboard</h6>
+                    </div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light treeview-animated-list" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i
+                                class="fas fa-chart-pie"></i><span>Summary</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="OpSec.html"><i
+                                class="fas fa-theater-masks"></i><span>OpSec</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="DataRemoval.html"><i
+                                class="fas fa-database"></i><span>Data Removal</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="creditfreeze.html"><i
+                                class="fas fa-icicles"></i><span>Credit Freeze</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="DataRequests.html"><i
+                                class="fas fa-cloud-download-alt"></i><span>Data Requests</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="Recurring.html"><i
+                                class="fas fa-tachometer-alt"></i><span>Recurring/Utilities</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html"><i
+                                class="fas fa-warehouse"></i><span>Home Privacy</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html"><i
+                                class="fas fa-laptop"></i><span>Computer Privacy</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="flag.html"><i class="far fa-flag"></i><span>Planting
+                                Your Flag</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="Disinformation.html"><i
+                                class="fas fa-american-sign-language-interpreting"></i><span>Disinformation</span></a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="blank.html"><i
+                                class="fas fa-headset"></i><span>Consulting</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="Resources.html"><i
+                                class="fas fa-link"></i><span>Resources</span></a></li>
+                    <li class="nav-item">
+                        <hr class="nav-hr"><a class="nav-link nav-link" href="Admin.html"><i
+                                class="fas fa-wrench"></i><span>Admin</span></a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link nav-link" href="Submissions.html"><i
+                                class="fas fa-brain"></i><span class="d-inline">Submissions</span><span
+                                class="bg-success d-inline flash animated badge" style="margin-left: 5px;">12</span></a>
+                    </li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
+                        id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content" class="d-flex flex-column min-vh-100">
+                <nav class="navbar navbar-light navbar-expand bg-dark shadow-none mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3"
+                            id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <form
+                            class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group"><input class="bg-light form-control form-control-sm border-0 small"
+                                    type="text" placeholder="Search for records..." name="searchbar">
+                                <div class="input-group-append"><button class="btn btn-secondary py-0" type="button"><i
+                                            class="fas fa-search"></i></button></div>
+                            </div>
+                        </form>
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">
+                            <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
+                                    data-toggle="dropdown" aria-expanded="false" href="#"><i
+                                        class="fas fa-search"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in"
+                                    aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto navbar-search w-100">
+                                        <div class="input-group"><input class="bg-light form-control border-0 small"
+                                                type="text" placeholder="Search for ...">
+                                            <div class="input-group-append"><button class="btn btn-primary py-0"
+                                                    type="button"><i class="fas fa-search"></i></button></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                <div class="nav-item dropdown no-arrow"><a data-toggle="dropdown" aria-expanded="false"
+                                        class="nav-link" href="#"><span
+                                            class="bg-danger flash animated badge badge-counter">3</span><i
+                                            class="far fa-bell fa-fw"></i></a>
+                                    <div
+                                        class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in">
+                                        <h6 class="dropdown-header" style="background: #dd5900;">Notification center
+                                        </h6><a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="mr-3">
+                                                <div class="bg-warning icon-circle"><i
+                                                        class="far fa-clock text-white"></i></div>
+                                            </div>
+                                            <div><span class="small text-gray-500">December 7, 2020</span>
+                                                <p style="margin-bottom: 0px;">&gt;30 days since checked an item in
+                                                    People Search Websites</p>
+                                            </div>
+                                        </a><a class="d-flex align-items-center dropdown-item ribbon-wrapper ribbon"
+                                            href="#">
+                                            <div class="mr-3">
+                                                <div class="bg-success icon-circle"><i
+                                                        class="fas fa-plus text-white"></i></div>
+                                            </div>
+                                            <div><span class="small text-gray-500">November 13, 2020</span>
+                                                <p style="margin-bottom: 0px;">New item added under Data Request (item
+                                                    name)</p>
+                                            </div>
+                                        </a><a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="mr-3">
+                                                <div class="bg-secondary icon-circle"><i
+                                                        class="far fa-trash-alt text-white"></i></div>
+                                            </div>
+                                            <div><span class="small text-gray-500">February 23, 2020</span>
+                                                <p style="margin-bottom: 0px;">Removing old item in 10 days: Pipl.com is
+                                                    now paid</p>
+                                            </div>
+                                        </a><a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="mr-3">
+                                                <div class="bg-danger icon-circle"><i
+                                                        class="fas fa-exclamation-triangle text-white"></i></div>
+                                            </div>
+                                            <div><span class="small text-gray-500">June 23, 2020</span>
+                                                <p style="margin-bottom: 0px;">&gt;60 days since checked an item in Maps
+                                                </p>
+                                            </div>
+                                        </a><a class="text-center dropdown-item small text-gray-500"
+                                            id="show-all-alerts" href="/notifications.html">Show All</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
+                                        data-toggle="dropdown" aria-expanded="false" href="#"><span
+                                            class="d-none d-lg-inline mr-2 small">John Doe</span><img
+                                            class="border rounded-circle img-profile" src="assets/img/PP-23.jpg"></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a
+                                            class="dropdown-item" href="settings.html"><i
+                                                class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                        <div class="dropdown-divider"></div>
+                                        <p class="text-center" style="margin-bottom: 5px;">Switch Profile</p><a
+                                            class="dropdown-item"><img class="border rounded-circle img-fluid avatar"
+                                                src="assets/img/PP-35.jpg" style="margin-right: 5px;" width="30px"
+                                                height="30px">&nbsp;Jane Smith</a><a class="dropdown-item"><img
+                                                class="border rounded-circle img-fluid avatar"
+                                                src="assets/img/PP-30.jpg" style="margin-right: 5px;" width="30px"
+                                                height="30px">&nbsp;Mark Doe</a>
+                                        <div class="dropdown-divider"></div><!-- Start: support --><a
+                                            class="dropdown-item" href="#" data-toggle="modal"
+                                            data-target="#support-modal"><i
+                                                class="far fa-life-ring fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Support</a>
+                                        <!-- End: support --><a class="dropdown-item" href="login.html"><i
+                                                class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                    </div>
+                                </div>
+                                <div class="modal fade" role="dialog" tabindex="-1" id="support-modal">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header"
+                                                style="background: url(&quot;assets/img/interlaced.png&quot;);">
+                                                <h4 class="modal-title"><i class="far fa-life-ring"
+                                                        style="padding-right: 5px;padding-left: 5px;"></i>Support</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            </div><!-- Start: change password -->
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <p>Please describe your issue here.</p>
+                                                        <p>You need to have an email specified in your account to
+                                                            communicate with support.</p>
+                                                        <p>If you prefer chat, come to the matrix room instead.</p>
+                                                        <textarea class="form-control-lg" autofocus=""
+                                                            autocomplete="off" spellcheck="false" required=""
+                                                            minlength="10" maxlength="500"
+                                                            style="width: 100%;height: 150px;"
+                                                            placeholder="explain your issue..."></textarea>
+                                                    </div>
+                                                </div>
+                                            </div><!-- End: change password -->
+                                            <div class="modal-footer"><button class="btn btn-light" type="button"
+                                                    data-dismiss="modal">Cancel</button><button class="btn btn-primary"
+                                                    type="submit"><i class="far fa-thumbs-up"
+                                                        style="padding-right: 5px;padding-left: 5px;"></i>Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid bg-dark border-dark"
+                    style="background: url(&quot;assets/img/dark-honeycomb.png&quot;), rgb(37,36,36);padding-top: 24px;">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4"
+                        style="background: transparent;"></div>
+                    <div class="row" style="width: 100%;">
+                        <div class="col-8 align-self-center mb-4">
+                            <h1 class="text-dark mb-0" id="section-heading">Template</h1>
+                            <p style="margin-top: 10px;">Manage your Profile, Security and Preferences</p>
+                        </div>
+                        <div class="col-4 text-right mb-4">
+                            <div class="row justify-content-center align-items-center no-gutters">
+                                <div class="col-auto align-self-center">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div>
+                                                <div class="progress-circle" data-percentage="72">
+                                                    <span class="progress-left-circle">
+                                                        <span class="progress-bar-circle"></span>
+                                                    </span>
+                                                    <span class="progress-right-circle">
+                                                        <span class="progress-bar-circle"></span>
+                                                    </span>
+                                                    <div class="progress-value-circle">
+                                                        <div>
+                                                            70% </br>
+                                                            <span>completed</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Start: Chart -->
+                    <div class="row" style="margin-top: 25px;">
+                        <div class="col">
+                            <div class="card shadow mb-3">
+                                <div class="card-header py-3"
+                                    style="background: url(&quot;assets/img/interlaced.png&quot;);">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <h4 class="mb-0"><strong>Profile</strong><span class="badge badge-success"
+                                                    style="margin-right: 20px;margin-left: 20px;font-size: 14px;">Primary</span><span
+                                                    class="badge badge-secondary"
+                                                    style="margin-right: 20px;margin-left: 20px;font-size: 14px;">Secondary</span><span
+                                                    class="badge badge-warning"
+                                                    style="margin-right: 20px;margin-left: 20px;font-size: 14px;">Shared</span>
+                                            </h4>
+                                        </div>
+                                        <div class="col-1"><i class="fas fa-user"
+                                                style="padding-right: 5px;padding-left: 5px;font-size: 30px;"></i></div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <div class="form-group"><label
+                                                        for="username"><strong>Username</strong></label><input
+                                                        class="form-control" type="text" id="username"
+                                                        placeholder="user.name" name="username"></div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group"><label for="email"><strong>Email
+                                                            Address</strong></label><input class="form-control"
+                                                        type="email" id="email-address" placeholder="user@example.com"
+                                                        name="email"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <div class="form-group"><label for="first_name"><strong>First
+                                                            Name</strong></label><input class="form-control" type="text"
+                                                        id="first-name" placeholder="John" name="first_name"></div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group"><label for="last_name"><strong>Last
+                                                            Name</strong></label><input class="form-control" type="text"
+                                                        id="last-name" placeholder="Doe" name="last_name"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><button class="btn btn-outline-primary" type="button"><i
+                                                    class="far fa-arrow-alt-circle-up"
+                                                    style="padding-right: 5px;padding-left: 5px;"></i>Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3"
+                                    style="background: url(&quot;assets/img/interlaced.png&quot;);">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <h4 class="mb-0"><strong>Security</strong></h4>
+                                        </div>
+                                        <div class="col-1"><i class="fas fa-shield-alt"
+                                                style="padding-right: 5px;padding-left: 5px;font-size: 30px;"></i></div>
+                                    </div>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col mr-2">
+                                                <h6 class="mb-0"><strong>Change Password</strong></h6><span
+                                                    class="text-xs">Use a password manager for better security</span>
+                                            </div>
+                                            <div class="col-2"><button class="btn btn-outline-primary btn-block"
+                                                    type="button" data-toggle="modal"
+                                                    data-target="#change-pass-modal"><i class="fas fa-key"
+                                                        style="padding-right: 5px;padding-left: 5px;"></i>Change</button>
+                                                <div class="modal fade" role="dialog" tabindex="-1"
+                                                    id="change-pass-modal">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header"
+                                                                style="background: url(&quot;assets/img/interlaced.png&quot;);">
+                                                                <h4 class="modal-title"><i class="fas fa-key"
+                                                                        style="padding-right: 5px;padding-left: 5px;"></i>Change
+                                                                    Password</h4><button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close"><span
+                                                                        aria-hidden="true">×</span></button>
+                                                            </div><!-- Start: change password -->
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <div
+                                                                            class="input-group flex-nowrap input-group mb-3">
+                                                                            <span id="basic-addon-6"
+                                                                                class="input-group-prepend input-group-text"
+                                                                                style="border-top-left-radius: 15px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;border-bottom-left-radius: 15px;"><i
+                                                                                    class="fas fa-unlock"
+                                                                                    style="color: #919693;padding-right: 5px;padding-left: 5px;"></i></span><input
+                                                                                type="password" id="current-password-3"
+                                                                                class="form-control"
+                                                                                placeholder="current password"
+                                                                                required="" minlength="20"></div>
+                                                                        <div class="input-group flex-nowrap input-group mb-3"
+                                                                            for="new-password"><span id="basic-addon-7"
+                                                                                class="input-group-prepend input-group-text"
+                                                                                style="border-top-left-radius: 15px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;border-bottom-left-radius: 15px;"
+                                                                                for="new-password"><i
+                                                                                    class="fas fa-lock"
+                                                                                    style="color: #919693;padding-right: 5px;padding-left: 5px;"></i></span><input
+                                                                                type="password" id="new-password-2"
+                                                                                class="form-control novalidate"
+                                                                                placeholder="new password >30"
+                                                                                minlength="30" autocomplete="off">
+                                                                            <div class="invalid-feedback">min length 30
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- End: change password -->
+                                                            <div class="modal-footer"><button class="btn btn-light"
+                                                                    type="button"
+                                                                    data-dismiss="modal">Cancel</button><button
+                                                                    class="btn btn-primary" type="button">Save</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col mr-2">
+                                                <h6 class="mb-0"><strong>Enable Multi Factor Authentication
+                                                        (MFA)</strong><br></h6><span class="text-xs">Add a device to
+                                                    send the 2nd factor to authenticate</span>
+                                            </div>
+                                            <div class="col-2 text-center align-self-center">
+                                                <div class="custom-control text-center custom-switch"><input
+                                                        class="custom-control-input" type="checkbox" id="switch-mfa"
+                                                        data-toggle="toggle"><label class="custom-control-label"
+                                                        for="switch-mfa"></label></div>
+                                                <div id="mfa-status-txt"><span class="text-success contentB"
+                                                        id="mfa-enabled-txt" style="font-size: 14px; display: none;"
+                                                        for="mfa-toggle">Enabled<i class="fa fa-check-circle"
+                                                            style="margin-left: 5px;margin-right: 5px;"></i></span><span
+                                                        class="text-warning contentA" style="font-size: 14px;"
+                                                        for="mfa-toggle">Disabled<i class="fa fa-times-circle"
+                                                            style="margin-left: 5px;margin-right: 5px;"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3"
+                                    style="background: url(&quot;assets/img/interlaced.png&quot;);">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <h4 class="mb-0"><strong>Access</strong></h4>
+                                        </div>
+                                        <div class="col-1"><i class="fas fa-handshake"
+                                                style="padding-right: 5px;padding-left: 5px;font-size: 30px;"></i></div>
+                                    </div><span class="text-xs">Share access and collaborate with others. Revoke access
+                                        when needed.</span>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col-9">
+                                                <h6 class="mb-0"><strong>s.joe1990</strong></h6>
+                                                <h6 class="text-truncate text-left">Sally Joe</h6>
+                                            </div>
+                                            <div class="col-3 text-right"><a class="text-danger" data-toggle="tooltip"
+                                                    data-bs-tooltip="" href="#" title="delete"
+                                                    style="font-size: 25px;"><i class="fa fa-trash-o"
+                                                        style="margin-right: 10px;margin-left: 10px;font-size: 20px;"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col-9">
+                                                <h6 class="mb-0"><strong>s.joe1990</strong></h6>
+                                                <h6 class="text-truncate text-left">Sally Joe</h6>
+                                            </div>
+                                            <div class="col-3 text-right"><a class="text-danger" data-toggle="tooltip"
+                                                    data-bs-tooltip="" href="#" title="delete"
+                                                    style="font-size: 25px;"><i class="fa fa-trash-o"
+                                                        style="margin-right: 10px;margin-left: 10px;font-size: 20px;"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col"><button class="btn btn-outline-primary" type="button"
+                                                    data-toggle="modal" data-target="#grant-access-modal"><i
+                                                        class="fas fa-hand-holding-heart"
+                                                        style="padding-right: 5px;padding-left: 5px;"></i>Grant
+                                                    Access</button>
+                                                <div class="modal fade" role="dialog" tabindex="-1"
+                                                    id="grant-access-modal">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header"
+                                                                style="background: url(&quot;assets/img/interlaced.png&quot;);">
+                                                                <h4 class="modal-title"><i class="fas fa-trash"
+                                                                        style="padding-right: 5px;padding-left: 5px;"></i>Grant
+                                                                    Access</h4><button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close"><span
+                                                                        aria-hidden="true">×</span></button>
+                                                            </div><!-- Start: change password -->
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <div
+                                                                            class="input-group flex-nowrap input-group mb-3">
+                                                                            <span id="basic-addon-2"
+                                                                                class="input-group-prepend input-group-text"
+                                                                                style="border-top-left-radius: 15px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;border-bottom-left-radius: 15px;"><i
+                                                                                    class="fas fa-user"
+                                                                                    style="color: #919693;padding-right: 5px;padding-left: 5px;"></i></span><input
+                                                                                type="text" class="form-control"
+                                                                                placeholder="username or email"></div>
+                                                                        <ul>
+                                                                            <li>Ask the user for their correct username
+                                                                                or email and enter it above</li>
+                                                                            <li>Once they accept, they will see it in
+                                                                                their dashboard</li>
+                                                                            <li>They will have full access to change
+                                                                                parameters</li>
+                                                                            <li>They will only have access to this
+                                                                                particular profile</li>
+                                                                            <li>Only you as the owner of the profile can
+                                                                                delete it</li>
+                                                                            <li>They cannot see your other profiles</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- End: change password -->
+                                                            <div class="modal-footer"><button class="btn btn-light"
+                                                                    type="button"
+                                                                    data-dismiss="modal">Cancel</button><button
+                                                                    class="btn btn-danger" type="button"><i
+                                                                        class="fas fa-hand-holding-heart"
+                                                                        style="padding-right: 5px;padding-left: 5px;"></i>Grant</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3"
+                                    style="background: url(&quot;assets/img/interlaced.png&quot;);">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <h4 class="mb-0"><strong>Account</strong></h4>
+                                        </div>
+                                        <div class="col-1"><i class="fas fa-cogs"
+                                                style="padding-right: 5px;padding-left: 5px;font-size: 30px;"></i></div>
+                                    </div>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col mr-2">
+                                                <h6 class="mb-0"><strong>Delete Account</strong></h6><span
+                                                    class="text-xs">This action is permanent and cannot be undone</span>
+                                            </div>
+                                            <div class="col-2"><button class="btn btn-outline-danger btn-block"
+                                                    type="button" data-target="#delete-acct-modal"
+                                                    data-toggle="modal"><i class="fas fa-trash"
+                                                        style="padding-right: 5px;padding-left: 5px;"></i>Delete</button>
+                                                <div class="modal fade" role="dialog" tabindex="-1"
+                                                    id="delete-acct-modal">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header"
+                                                                style="background: url(&quot;assets/img/interlaced.png&quot;);">
+                                                                <h4 class="modal-title"><i class="fas fa-trash"
+                                                                        style="padding-right: 5px;padding-left: 5px;"></i>Delete
+                                                                    Account</h4><button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close"><span
+                                                                        aria-hidden="true">×</span></button>
+                                                            </div><!-- Start: change password -->
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <div
+                                                                            class="input-group flex-nowrap input-group mb-3">
+                                                                            <span id="basic-addon-1"
+                                                                                class="input-group-prepend input-group-text"
+                                                                                style="border-top-left-radius: 15px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;border-bottom-left-radius: 15px;"><i
+                                                                                    class="fas fa-key"
+                                                                                    style="color: #919693;padding-right: 5px;padding-left: 5px;"></i></span><input
+                                                                                type="password" id="current-password-1"
+                                                                                class="form-control"
+                                                                                placeholder="current password"
+                                                                                required="" minlength="20"></div>
+                                                                        <p>This is NOT reversible. It will also delete
+                                                                            any sub-accounts or profiles. Please
+                                                                            download your data in case you need it
+                                                                            later.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- End: change password -->
+                                                            <div class="modal-footer"><button class="btn btn-light"
+                                                                    type="button"
+                                                                    data-dismiss="modal">Cancel</button><button
+                                                                    class="btn btn-danger" type="button"><i
+                                                                        class="far fa-trash-alt"
+                                                                        style="padding-right: 5px;padding-left: 5px;"></i>Delete</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col mr-2">
+                                                <h6 class="mb-0"><strong>Download All Data</strong></h6><span
+                                                    class="text-xs">Get a zip file of all your data in the
+                                                    database</span>
+                                            </div>
+                                            <div class="col-2"><button class="btn btn-outline-primary btn-block"
+                                                    type="button"><i class="fas fa-download"
+                                                        style="padding-right: 5px;padding-left: 5px;"></i>Download</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col mr-2">
+                                                <h6 class="mb-0"><strong>Notify me by email about new features or
+                                                        updates</strong><br></h6><span class="text-xs">No spam, only
+                                                    important updates.</span>
+                                            </div>
+                                            <div class="col-2 text-center align-self-center">
+                                                <div class="custom-control text-right custom-switch"><input
+                                                        class="custom-control-input" type="checkbox"
+                                                        id="formCheck-3"><label class="custom-control-label"
+                                                        for="formCheck-3"></label></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card mb-3">
+                                <div class="card-body text-center shadow"
+                                    style="background: url(&quot;assets/img/interlaced.png&quot;);"><img
+                                        class="rounded-circle mb-3 mt-4" src="assets/img/PP-23.jpg" width="160"
+                                        height="160">
+                                    <div class="mb-3"><button class="btn btn-secondary btn-sm" type="button">Change
+                                            Photo</button></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card-group text-center d-xl-flex" style="width: 100%;">
+                                        <div class="card" style="margin-bottom: 24px;">
+                                            <div class="card-body"><i class="fas fa-medal fa-fw"
+                                                    style="margin-top: 6px;"></i><span class="text-success"
+                                                    style="font-size: 25px;">38</span>
+                                                <p style="color: #919693;">Contribution</p><button
+                                                    class="btn btn-outline-primary btn-sm" type="button"
+                                                    data-toggle="modal" data-target="#contribute-modal"><i
+                                                        class="fas fa-brain"
+                                                        style="padding-right: 5px;padding-left: 5px;"></i>Submit</button>
+                                                <div class="modal fade" role="dialog" tabindex="-1"
+                                                    id="contribute-modal">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header"
+                                                                style="background: url(&quot;assets/img/interlaced.png&quot;);">
+                                                                <h4 class="modal-title"><i class="fas fa-medal"
+                                                                        style="padding-right: 5px;padding-left: 5px;"></i>Contribute
+                                                                </h4><button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close"><span
+                                                                        aria-hidden="true">×</span></button>
+                                                            </div><!-- Start: change password -->
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p class="text-justify">Please add your
+                                                                            contribution based on the ideas below. Each
+                                                                            new contribution that is accepted will earn
+                                                                            you points that you can utilize towards your
+                                                                            subscription.</p>
+                                                                        <p class="text-center text-success">1 point = $1
+                                                                        </p>
+                                                                        <ul class="text-left">
+                                                                            <li>New Opt-Out service</li>
+                                                                            <li>Correction in link</li>
+                                                                            <li>Outdated link or method</li>
+                                                                            <li>Website issue/error</li>
+                                                                            <li>Anything else</li>
+                                                                        </ul><textarea class="form-control-lg"
+                                                                            autofocus="" autocomplete="off"
+                                                                            spellcheck="false" required=""
+                                                                            minlength="10" maxlength="500"
+                                                                            style="width: 100%;height: 150px;"
+                                                                            placeholder="describe with links and an explanation in words"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- End: change password -->
+                                                            <div class="modal-footer"><button class="btn btn-light"
+                                                                    type="button"
+                                                                    data-dismiss="modal">Cancel</button><button
+                                                                    class="btn btn-primary" type="button"><i
+                                                                        class="far fa-thumbs-up"
+                                                                        style="padding-right: 5px;padding-left: 5px;"></i>Submit</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card-group text-center d-xl-flex" style="width: 100%;">
+                                        <div class="card" style="margin-bottom: 24px;">
+                                            <div class="card-body"><i class="fas fa-medal fa-fw"
+                                                    style="margin-top: 6px;"></i><span class="text-danger"
+                                                    style="font-size: 25px;">Paranoid</span>
+                                                <p style="color: #919693;">Tier</p><button
+                                                    class="btn btn-outline-primary btn-sm" type="button"
+                                                    data-toggle="modal" data-target="#change-tier-modal"><i
+                                                        class="fas fa-cart-plus"
+                                                        style="padding-right: 5px;padding-left: 5px;"></i>Change</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card-group text-center d-xl-flex" style="width: 100%;">
+                                        <div class="card" style="margin-bottom: 24px;">
+                                            <div class="card-body"><i class="fas fa-medal fa-fw"
+                                                    style="margin-top: 6px;"></i><span class="text-success"
+                                                    style="font-size: 25px;">38</span>
+                                                <p style="color: #919693;">Contribution</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End: Chart -->
+                </div>
+            </div>
+            <footer class="text-white-50 bg-dark" style="min-height: 40px;padding-top: 5px;margin-top: 100px;">
+                <div
+                    class="container-fluid d-inline-flex justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center">
+                    <div class="text-center d-inline"><span><a
+                                href="ChangeLog.html">Changelog</a></span><span>|</span><span><a
+                                href="PrivacyPolicy.html">Privacy Policy</a></span><span>|</span><span><a
+                                href="FAQ.html">FAQ</a></span><span>|</span><span><a href="https://www.twitter.com"
+                                target="_blank"><i class="fa fa-twitter"></i></a></span><span><a href="#"><i
+                                    class="fa fa-comments-o"></i></a></span></div>
+                </div>
+            </footer>
+        </div>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/js/bootstrap4-toggle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+
+-Collections
+	-Users
+	-Categories
+	-TaskTemplate
+	-Submissions
+	-Changelog
+	-
+
+
+---------------------------------------------------------
+User Collection (document for each user)
+
+{
+	_id: ObjectId("12345"),
+	username: "jdoe1",
+	firstname: "John",
+	lastname:	"Doe",
+	password: "5@!ef2te85%7#gfhiu5sag"
+	MFA: [
+		"Authenticator", "AIGAE7GER93GR03F"
+		"U2F", "cvveuiuha736735"
+		"Backup Codes", "343567", "3458789", "4987897", "894609",
+	]
+
+	Notifications: [
+		0:{
+		"Date": "2-12-2020",
+		"description": "New item added under Data Removal",
+		"link":	"/DataRemoval.htmll",
+		"icon": "plus"
+		}
+		1:{
+		"Date": "3-12-2020",
+		"description": "60 days since checked item under Credit Freeze",
+		"link":	"/CreditFreeze.html",
+		"icon": "plus"
+		}
+	]
+
+	Tasks: [] 		//either put them here or refernce from a separate collection
+
+
+
+
+}
+
+---------------------------------------------------------
+Categories Collection:
+
+{
+	Categories: [
+	 "Utilities":{"Electric", "Phone", "Water"},
+	 "Credit Freeze":{"Credit Freeze", "Credit Monitoring", "Other"},
+	 "OpSec":{"Privacy", "Security"},
+	 "c", 
+	 "Consulting",
+}
+
+
+
+---------------------------------------------------------
+Tasks Collection Template: 1 document = 1 of 100s of tasks (1000-3000 documents)
+
+{
+	_id: ObjectId("19574384"),
+	Category: "",
+	Subcategory: "",
+	Website: "",
+	ico: "",
+	category: "",
+	date_requested: "",					//editable
+	removed: false,						//editable
+	Notes: "notes go here",				//editable
+	applicable: true,					//editable
+	points: 1,
+}
+
+---------------------------------------------------------
+Task Entry: document per user:	(10,000 users = 10K documents with 4 values each)
+
+{
+	_id:ObjectID("3353453w"),
+	userid: (reference userID),
+	Task1: (reference taskID),
+	task_status: [task#, date, false, "edited notes go here", true]
+}
+
+
+
+
+---------------------------------------------------------
+Submissions:
+
+{
+	_id: ObjectId("44353"),
+	time: ISODate(2020-01-15T09:44:12.44),
+	category: "Cat1",
+	message: "here's my suggession."
+	userid: ObjectId("12345"),
+	reward: "1",
+	decision: true,
+}
+
+-----------------------TIPs----------------------------------
+
+
+-------INDEXES-------
+keep them low for performance. Necessary for search or frequent queries:
+-website
+-username
+
+------Document: 16MB sized limit------
+
+
+-have case insensitive queries	and case insensitive indexes
+	set the collation strengths 1 or 2 for the case insensitive index
+	{"username": {$regex: /john/i}}
+
+Set a default collation:	{local": 'en', strength:2} for the collection
+
+
+
+---------------------------------------------------------
+
+
+
+
+
+
+
+
+---------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+

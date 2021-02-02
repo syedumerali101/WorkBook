@@ -1,0 +1,210 @@
+<%- include('../common/header'); -%>
+
+    <body id="page-top" style="background: transparent;position: relative; min-height:100%;">
+        <div id="wrapper">
+            <%- include('../common/sidebar'); -%>
+
+                <div class="d-flex flex-column" id="content-wrapper" style="position: relative;overflow: auto;">
+                    <div class="flex-grow-1 d-flex flex-column min-vh-100" id="content">
+                        <%- include('../common/headerStrip'); -%>
+                            <div class="container-fluid bg-dark border-dark flex-column flex-grow-1">
+                                <div class="d-sm-flex justify-content-between align-items-center mb-4"
+                                    style="background: transparent;"></div>
+                                <div class="row justify-content-center" style="width: 100%;">
+                                    <div class="col align-self-center mb-4">
+                                        <h1 class="text-dark mb-0" id="section-heading">Summary</h1>
+                                        <p style="margin-top: 10px;">An overview of your progress in the battle of
+                                            privacy.
+                                        </p>
+                                    </div><!-- Start: guages -->
+                                    <div class="col-auto mb-4">
+                                        <div class="row no-gutters">
+                                            <div class="col d-block align-self-center"
+                                                style="margin-left: 10px;margin-right: 10px;">
+                                                <div class="row">
+                                                    <div class="col text-center">
+                                                        <div class="d-inline-block">
+                                                            <div class="progress-circle" data-percentage="88"><span
+                                                                    class="progress-left-circle"><span
+                                                                        class="progress-bar-circle"
+                                                                        style="border-color: #22dd22;"></span></span><span
+                                                                    class="progress-right-circle"><span
+                                                                        class="progress-bar-circle"
+                                                                        style="border-color: #22dd22;"></span></span>
+                                                                <div class="progress-value-circle">
+                                                                    <div><span style="font-size: 25px;">48%</span>
+                                                                        <p class="text-uppercase"
+                                                                            style="font-size: 12px;line-height: 27px;margin-bottom: -10px;">
+                                                                            Completed</p><span
+                                                                            style="font-size: 10px;">55/89</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col d-block align-self-center"
+                                                style="margin-left: 10px;margin-right: 10px;">
+                                                <div class="row">
+                                                    <div class="col text-center">
+                                                        <div class="d-inline-block">
+                                                            <div class="progress-circle" data-percentage="77"><span
+                                                                    class="progress-left-circle"><span
+                                                                        class="progress-bar-circle"></span></span><span
+                                                                    class="progress-right-circle"><span
+                                                                        class="progress-bar-circle"></span></span>
+                                                                <div class="progress-value-circle">
+                                                                    <div><span style="font-size: 25px;">77%</span>
+                                                                        <p class="text-uppercase"
+                                                                            style="font-size: 12px;line-height: 27px;margin-bottom: -10px;">
+                                                                            Privacy Score</p><span
+                                                                            style="font-size: 10px;">340</span><span
+                                                                            style="font-size: 10px;">/</span><span
+                                                                            style="font-size: 10px;">765</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- End: guages -->
+                                </div><!-- Start: Chart -->
+                                <div class="row" style="margin-top: 25px;">
+                                    <div class="col-lg-7 col-xl-8">
+                                        <div class="card shadow mb-4">
+                                            <div class="card-header py-3"
+                                                style="background: url(&quot;img/interlaced.png&quot;);">
+                                                <div class="row align-items-center no-gutters">
+                                                    <div class="col mr-2">
+                                                        <h4 class="text-center text-sm-left mb-0" data-toggle="tooltip"
+                                                            data-bs-tooltip="" title="measured by task completion">
+                                                            <strong>Overall
+                                                                Progress</strong>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-auto"><i class="far fa-chart-bar"
+                                                            style="padding-right: 5px;padding-left: 5px;font-size: 30px;"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="small font-weight-bold">Data Removal<span
+                                                        class="float-right">20/104</span></h4>
+                                                <div class="progress mb-4">
+                                                    <div class="progress-bar bg-danger progress-bar-animated"
+                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                                                        style="width: 20%;">20%</div>
+                                                </div>
+                                                <h4 class="small font-weight-bold">Credit Freeze<span
+                                                        class="float-right">4/7</span>
+                                                </h4>
+                                                <div class="progress mb-4">
+                                                    <div class="progress-bar bg-warning" aria-valuenow="40"
+                                                        aria-valuemin="0" aria-valuemax="100" style="width: 40%;">40%
+                                                    </div>
+                                                </div>
+                                                <h4 class="small font-weight-bold">Utilities/Recurring<span
+                                                        class="float-right">5/9</span></h4>
+                                                <div class="progress mb-4">
+                                                    <div class="progress-bar bg-primary" aria-valuenow="60"
+                                                        aria-valuemin="0" aria-valuemax="100" style="width: 60%;">60%
+                                                    </div>
+                                                </div>
+                                                <h4 class="small font-weight-bold">Planting Your Flag<span
+                                                        class="float-right">7/12</span></h4>
+                                                <div class="progress mb-4">
+                                                    <div class="progress-bar bg-info" aria-valuenow="80"
+                                                        aria-valuemin="0" aria-valuemax="100" style="width: 80%;">80%
+                                                    </div>
+                                                </div>
+                                                <h4 class="small font-weight-bold">Data Requests<span
+                                                        class="float-right">12/12</span></h4>
+                                                <div class="progress mb-4">
+                                                    <div class="progress-bar bg-success" aria-valuenow="100"
+                                                        aria-valuemin="0" aria-valuemax="100" style="width: 100%;">100%
+                                                    </div>
+                                                </div>
+                                                <h4 class="small font-weight-bold">Disinformation<span
+                                                        class="float-right">2/10</span></h4>
+                                                <div class="progress mb-3">
+                                                    <div class="progress-bar bg-info progress-bar-animated"
+                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                                                        style="width: 20%;">20%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-xl-4 d-flex">
+                                        <div class="card flex-grow-1 mb-4">
+                                            <div class="card-header py-3"
+                                                style="background: url(&quot;img/interlaced.png&quot;);">
+                                                <div class="row no-gutters">
+                                                    <div class="col mr-2">
+                                                        <h4 class="mb-0"><strong>Task Distribution</strong></h4>
+                                                    </div>
+                                                    <div class="col-auto float-right"><span
+                                                            class="badge badge-pill badge-primary"
+                                                            style="padding-right: 10px;padding-left: 10px;">42</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div style="height: 100%;width: 100%;"><canvas
+                                                        data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;People Search&quot;,&quot;Non-Public&quot;,&quot;Other&quot;,&quot;Maps&quot;,&quot;Business&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Task&quot;,&quot;backgroundColor&quot;:[&quot;rgb(164,53,53)&quot;,&quot;rgba(42,190,18,0.86)&quot;,&quot;rgb(235,198,4)&quot;,&quot;rgb(84,172,237)&quot;,&quot;rgb(239,98,234)&quot;],&quot;borderColor&quot;:[&quot;rgba(255,255,255,0)&quot;,&quot;rgba(255,255,255,0)&quot;,&quot;rgba(255,255,255,0)&quot;,&quot;rgba(255,255,255,0)&quot;,&quot;rgba(255,255,255,0)&quot;],&quot;data&quot;:[&quot;4500&quot;,&quot;5300&quot;,&quot;6250&quot;,&quot;7800&quot;,&quot;9800&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:true,&quot;position&quot;:&quot;bottom&quot;,&quot;reverse&quot;:false},&quot;title&quot;:{&quot;display&quot;:false,&quot;text&quot;:&quot;&quot;}}}"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End: Chart -->
+                                <!-- Start: Chart -->
+                                <div class="row" style="margin-top: 25px;">
+                                    <div class="col">
+                                        <div class="card shadow mb-4">
+                                            <div class="card-header py-3"
+                                                style="background: url(&quot;img/interlaced.png&quot;);">
+                                                <div
+                                                    class="row d-lg-flex d-xl-flex align-items-lg-center align-items-xl-center no-gutters">
+                                                    <div class="col d-xl-flex align-items-sm-center mr-2">
+                                                        <h4 class="text-center text-sm-left mb-0"><strong>Privacy
+                                                                Score</strong>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col text-center">
+                                                        <h1 class="text-center">28.41%</h1>
+                                                    </div>
+                                                    <div class="col text-center"><span
+                                                            class="badge badge-pill badge-info float-sm-right"
+                                                            style="font-size: 25px;"><span
+                                                                id="your-score-1">300</span><span
+                                                                id="slash-1">&nbsp;/&nbsp;</span><span
+                                                                id="total-score-1">756</span></span></div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <p>Not all items affect privacy equally.</p>
+                                                <p>Each task has an arbitrary score assigned to it (1-5) to indicate
+                                                    importance.
+                                                    A
+                                                    score of 1 has less impact on overall privacy whereas a score of 5
+                                                    will
+                                                    provide
+                                                    you the best bang for your buck.</p>
+                                                <p>Example: You may complete 5 tasks with 1 point each for a privacy
+                                                    score
+                                                    of 5.
+                                                    But
+                                                    completing 2 tasks with 5 points each is twice as beneficial as your
+                                                    score
+                                                    will
+                                                    be 10.</p>
+                                                <hr>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End: Chart -->
+                            </div>
+                    </div>
+                    <%- include('../common/footer'); -%>

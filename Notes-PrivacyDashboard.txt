@@ -1,0 +1,98 @@
+------MongoDB connection string for Compass:------
+
+mongodb+srv://dev1:fc4lPjd6JFSAfDib@cluster0.ggbfo.mongodb.net/test
+
+------------------------------------------------
+User Access Levels:
+	Admin:	add/delete/edit db entries, issue coupons, see all categories and tabs
+	Editor:	evering in admin -(edit user privilleges)
+	Tier1:	(Conscious)	
+	Tier2:	(Serious)
+	Tier3:	(Paranoid)
+
+
+------------common--------------
+-consolidate and import/reference the common header, footer, and sidebar in each page so I don't have to edit in 10 different places.
+
+-each section's 2 pie charts count only that sections stats, also seen individually in summary (index.html)
+
+------------------------------------------------------------------------
+index.html
+	- pie chart needs to impove later with labels inside.
+
+OpSec.html
+	- tab badge numbers should be a countdown of items remaining. ( count ={unchecked AND applicable} )
+
+DataRemoval.html
+	- Summary tab shows THIS section's summary only, not overall. This is ony for this section as it has a lot of tabs.
+	- at least 1 last tab will be disabled for free memebrs
+
+CreditFreeze.html
+	- 
+
+DataRequests.html
+	-
+
+Recurring.html
+	- pressing ADD will add it to the list above.
+	- the delete trash bin icon will delete that entry
+
+UNDER DEVELOPMENT:
+	HomePrivacy.html
+	ComputerPrivacy.html
+	Flag.html
+
+Disinformation:
+	-available only for tier 
+	-accordian header shows a count of remaining tasks (unchecked and applicable)
+
+Changelog.html
+	-Add button and delete individual change button only visible to admin/editor
+
+submissions.html
+	-Accept: sends an email if it exists, and put a notification in the user's queue, and adds the credit allocated.
+	-Reject: sends a rejection email with comment, and put it in the notification queue
+	-Accept or Reject, delete's it from the queue. but adds it to global variable counter: total accepted, or total rejected.
+-----------------------------------------------------------------------------
+Settings.html
+	- Profile
+		- the last link (US Census Bureau) should be dynamic, the href has 2 fields for first/last name, should be replaced with actual first/last name from db.
+		- The sentence above it has 3 variables inserted from the db
+		- A function should run every time the first or last name field is updated to update the db field # howmanyofme
+
+	- the "TOAST" alert should appear after a response from the db either success or failure with the message passed in the body of the toast. A sample toast is provided with id=toast-update-success and toast-update-fail
+	- button to trigger toast: Save, Submitted conribution, import, password changed, mfa enabled, file downloaded, access grant request sent.
+
+	-Grant Access buttton: once the other user accepts by clicking a special link in the email, only then will it update the list under "Grant Access". If user has no email, the 1st user will be notified that you cannot proceed as the user has no email associated. The 2nd users "Manage Profiles" section will also now see this profile as "shared"
+
+
+	- Delete account: deletes the whole account with all sub-profiles permanently after confirming the password
+	- Deleting a profile under "Manage Profiles" only deletes one profile IF it's secondary. If it's shared, then it's simply removed, only the owner can delete it. if it's primary, the profile is reset, not the account settings.
+
+	- When a user signs up, that's his default primary profile, you cannot delete that. The trash bin icon should be disabled on primary profile
+	- each new profile you create is considered a secondary profile
+	- if someone grants you access to their profile, it shows up as a "shared" profile. a shared icon appears. Clicking on the profile, the shared badge appears next to the large profile picture
+
+	Availbe to Tier-3 only:
+		- Manage Profiles "Add" button
+		- Grant Access button 
+		- Import button
+
+	- Notify for updates toggle is disabled if no email is supplied. The tooltip on the toggle is disabled if an email IS present.
+	- Download data in xml or json so that it can be imported. The download should have 2 files, one with account data, another with profile data. If a person has 3 profiles, the downloaded zip wll have 4 files (account data + individual profiles xml)
+	- importing a a profile will use this xml to add this profile to any account.
+
+	-Contribute button: after submission, it goes in the queue in the submissions.html page so the admin can approve/deny. (date, category and text field gets passed)
+-----------------------------------------------------------------------------
+
+
+
+Hardware Key (U2F)
+
+https://stackoverflow.com/questions/60041310/ability-to-register-and-sign-more-than-one-fido-u2f-security-key
+
+
+
+
+
+
